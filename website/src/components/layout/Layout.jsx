@@ -5,12 +5,12 @@ import { X, Cookie, Shield, Scroll } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import ScrollProgressBar from '../ui/ScrollProgressBar'
 
 export default function Layout({ children }) {
   const [cookieVisible, setCookieVisible] = useState(false)
   const [policyOpen, setPolicyOpen] = useState(false)
   const [privacyOpen, setPrivacyOpen] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,16 +18,6 @@ export default function Layout({ children }) {
       if (!accepted) setCookieVisible(true)
     }, 2000)
     return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const winScroll = document.documentElement.scrollTop
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-      setScrollProgress(height > 0 ? (winScroll / height) * 100 : 0)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const acceptCookies = () => {
@@ -38,14 +28,7 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Scroll progress bar */}
-      <div className="fixed top-0 left-0 right-0 z-[110] h-[2px]">
-        <motion.div
-          className="h-full bg-gradient-to-r from-lafoi-green to-lafoi-green-light"
-          style={{ width: `${scrollProgress}%` }}
-        />
-      </div>
-
+      <ScrollProgressBar />
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer onOpenPolicy={() => setPolicyOpen(true)} onOpenPrivacy={() => setPrivacyOpen(true)} />
