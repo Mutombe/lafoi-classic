@@ -6,9 +6,6 @@ import { ArrowRight, Check, Stack, Lightbulb, Printer, Cube, SpeakerHigh, Palett
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
-import MagneticButton from '../components/ui/MagneticButton'
-import TiltCard from '../components/ui/TiltCard'
 import { useSEO } from '../utils/seo'
 
 const allServices = [
@@ -380,7 +377,7 @@ function ServiceSpreads() {
             <div className="h-px w-8 bg-lafoi-green/40" />
           </div>
           <h2 className="heading-lg text-3xl sm:text-4xl text-lafoi-dark mb-4 tracking-[-0.01em]">
-            <CountUp to={10} className="text-gradient" /> services, every one delivered by our <span className="font-cabinet italic font-light text-gradient">in-house team</span>
+            10 services, every one delivered by our in-house team
           </h2>
           <p className="text-lafoi-gray font-general">
             Fast 1–2 day installs, fireproof and waterproof materials, and a 10-year material warranty on every project.
@@ -423,7 +420,7 @@ function ServiceSpread({ service, index, reverse, featured = false }) {
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-2 lg:py-4">
       <div className={`grid lg:grid-cols-12 gap-6 lg:gap-12 items-center`}>
         <div className={`lg:col-span-7 ${reverse ? 'lg:order-2' : ''}`}>
-          {featured ? <TiltCard>{imageBlock}</TiltCard> : imageBlock}
+          {imageBlock}
         </div>
 
         <div className={`lg:col-span-5 ${reverse ? 'lg:order-1' : ''}`}>
@@ -533,7 +530,7 @@ function WhyChooseUs() {
             <StaggerItem key={r.title}>
               <div className="p-6 rounded-2xl bg-white border border-gray-100 h-full hover:shadow-xl hover:shadow-lafoi-green/[0.05] transition-all duration-500 group relative overflow-hidden">
                 <div className="absolute top-4 right-4 font-sora text-2xl font-bold text-lafoi-green opacity-90">
-                  <CountUp to={r.count.to} suffix={r.count.suffix} />
+                  {r.count.to}{r.count.suffix || ''}
                 </div>
                 <div className="w-11 h-11 rounded-xl bg-lafoi-green/10 flex items-center justify-center mb-4 group-hover:bg-lafoi-green transition-colors duration-300">
                   <r.icon size={18} className="text-lafoi-green group-hover:text-white transition-colors" />
@@ -577,15 +574,13 @@ function ServicesCTA() {
             Contact us today for a consultation and our team will help you choose the right ceiling and lighting combination for your space, brief and budget.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <MagneticButton>
-              <Link
-                to="/contact"
-                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-              >
-                Book Free Consultation
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </MagneticButton>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green-dark transition-colors"
+            >
+              Book Free Consultation
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
             <a
               href="tel:+263712326951"
               className="inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
@@ -774,11 +769,11 @@ function ServiceDetail({ service }) {
                     </p>
                     <div className="grid grid-cols-2 gap-3 pt-4 border-t border-gray-100">
                       <div>
-                        <p className="font-sora text-2xl font-bold text-lafoi-dark"><CountUp to={10} suffix="-Yr" /></p>
+                        <p className="font-sora text-2xl font-bold text-lafoi-dark">10-Yr</p>
                         <p className="text-[10px] tracking-widest uppercase text-lafoi-gray-medium mt-1">Warranty</p>
                       </div>
                       <div>
-                        <p className="font-sora text-2xl font-bold text-lafoi-dark"><CountUp to={1} suffix="–2" /></p>
+                        <p className="font-sora text-2xl font-bold text-lafoi-dark">1–2</p>
                         <p className="text-[10px] tracking-widest uppercase text-lafoi-gray-medium mt-1">Day Install</p>
                       </div>
                     </div>

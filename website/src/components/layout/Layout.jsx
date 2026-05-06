@@ -5,7 +5,6 @@ import { X, Cookie, Shield, Scroll } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import ScrollProgressBar from '../ui/ScrollProgressBar'
 
 export default function Layout({ children }) {
   const [cookieVisible, setCookieVisible] = useState(false)
@@ -28,7 +27,6 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <ScrollProgressBar />
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer onOpenPolicy={() => setPolicyOpen(true)} onOpenPrivacy={() => setPrivacyOpen(true)} />

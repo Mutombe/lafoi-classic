@@ -6,8 +6,6 @@ import { toast } from 'sonner'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
-import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 const openings = [
@@ -98,8 +96,8 @@ export default function Careers() {
             </p>
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
               {[
-                { value: <CountUp to={openings.length} />, label: 'Open Roles' },
-                { value: <CountUp to={4} />, label: 'Departments' },
+                { value: openings.length, label: 'Open Roles' },
+                { value: 4, label: 'Departments' },
                 { value: 'In-House', label: 'Trained Crew' },
               ].map((stat, i) => (
                 <div key={i}>
@@ -188,7 +186,7 @@ export default function Careers() {
           <AnimatedSection className="text-center mb-16">
             <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Open Positions</span>
             <h2 className="heading-lg text-3xl sm:text-4xl text-lafoi-dark mt-4 mb-4">
-              <CountUp to={openings.length} className="text-gradient" /> roles open<br /><span className="font-cabinet italic font-light text-gradient">right now</span>
+              {openings.length} roles open right now
             </h2>
             <p className="text-lafoi-gray font-general max-w-md mx-auto">Explore current opportunities. Tap a row to expand the brief and apply directly via email.</p>
           </AnimatedSection>
@@ -257,15 +255,13 @@ export default function Careers() {
             <p className="text-white/70 font-general text-lg mb-10 max-w-xl mx-auto">
               We're always interested in hearing from talented individuals. Send your CV to admin@lafoidesigns.co.zw
             </p>
-            <MagneticButton>
-              <a
-                href="mailto:admin@lafoidesigns.co.zw?subject=General Application — La Foi Designs"
-                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
-              >
-                Send Your CV
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </MagneticButton>
+            <a
+              href="mailto:admin@lafoidesigns.co.zw?subject=General Application — La Foi Designs"
+              className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green-dark transition-colors"
+            >
+              Send Your CV
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </a>
           </AnimatedSection>
         </div>
       </section>

@@ -6,8 +6,6 @@ import { toast } from 'sonner'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
-import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 export default function Contact() {
@@ -66,9 +64,9 @@ function ContactHero() {
           </p>
           <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
             {[
-              { value: <><CountUp to={24} suffix="h" /></>, label: 'Response Time' },
+              { value: '24h', label: 'Response Time' },
               { value: 'Free', label: 'Consultations' },
-              { value: <CountUp to={200} suffix="+" />, label: 'Happy Clients' },
+              { value: '200+', label: 'Happy Clients' },
             ].map((stat, i) => (
               <div key={i}>
                 <p className="font-sora text-2xl font-bold text-white">{stat.value}</p>
@@ -475,15 +473,13 @@ function ContactCTA() {
             Book a free consultation and our team will visit your site, assess the brief, and prepare a tailored proposal.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <MagneticButton>
-              <Link
-                to="/services"
-                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-              >
-                Browse Services
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </MagneticButton>
+            <Link
+              to="/services"
+              className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green-dark transition-colors"
+            >
+              Browse Services
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
             <Link
               to="/portfolio"
               className="inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"

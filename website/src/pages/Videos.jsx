@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
-import MagneticButton from '../components/ui/MagneticButton'
-import TiltCard from '../components/ui/TiltCard'
 import { useSEO } from '../utils/seo'
 
 const videos = [
@@ -69,7 +66,7 @@ export default function Videos() {
             </p>
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
               <div>
-                <p className="font-sora text-2xl font-bold text-white"><CountUp to={videos.length} /></p>
+                <p className="font-sora text-2xl font-bold text-white">{videos.length}</p>
                 <p className="text-xs text-white/40 font-general mt-1">Featured Clips</p>
               </div>
               <div>
@@ -128,7 +125,6 @@ function FeaturedVideo({ video, onClick }) {
     <section className="relative -mt-20 z-30 px-4 sm:px-6 lg:px-10">
       <AnimatedSection>
         <div className="max-w-[1440px] mx-auto">
-          <TiltCard className="rounded-3xl" max={3}>
           <button
             onClick={onClick}
             className="group block w-full text-left relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30"
@@ -173,7 +169,6 @@ function FeaturedVideo({ video, onClick }) {
               </div>
             </div>
           </button>
-          </TiltCard>
         </div>
       </AnimatedSection>
     </section>
@@ -247,15 +242,13 @@ function VideoCTA() {
           <p className="text-white/75 font-general text-lg mb-8 max-w-xl mx-auto">
             Book a consultation and we'll specify the right finish, lighting and installation programme for your project.
           </p>
-          <MagneticButton>
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-            >
-              Start Your Project
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </MagneticButton>
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green-dark transition-colors"
+          >
+            Start Your Project
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </AnimatedSection>
       </div>
     </section>

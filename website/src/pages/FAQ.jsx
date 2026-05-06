@@ -5,8 +5,6 @@ import { CaretDown, ArrowRight, Question, ChatCircle, WhatsappLogo, EnvelopeSimp
 import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
-import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 const faqCategories = [
@@ -98,11 +96,11 @@ export default function FAQ() {
             </p>
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
               <div>
-                <p className="font-sora text-2xl font-bold text-white"><CountUp to={allCount} /></p>
+                <p className="font-sora text-2xl font-bold text-white">{allCount}</p>
                 <p className="text-xs text-white/40 font-general mt-1">Questions Answered</p>
               </div>
               <div>
-                <p className="font-sora text-2xl font-bold text-white"><CountUp to={faqCategories.length} /></p>
+                <p className="font-sora text-2xl font-bold text-white">{faqCategories.length}</p>
                 <p className="text-xs text-white/40 font-general mt-1">Topic Categories</p>
               </div>
               <div>
@@ -216,15 +214,13 @@ export default function FAQ() {
                     <WhatsappLogo size={16} weight="fill" />
                     WhatsApp
                   </a>
-                  <MagneticButton>
-                    <a
-                      href="mailto:admin@lafoidesigns.co.zw"
-                      className="inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full text-sm font-sora font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
-                    >
-                      <EnvelopeSimple size={16} />
-                      Email Us
-                    </a>
-                  </MagneticButton>
+                  <a
+                    href="mailto:admin@lafoidesigns.co.zw"
+                    className="inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full text-sm font-sora font-medium hover:bg-lafoi-green-dark transition-colors"
+                  >
+                    <EnvelopeSimple size={16} />
+                    Email Us
+                  </a>
                 </div>
               </div>
             </div>

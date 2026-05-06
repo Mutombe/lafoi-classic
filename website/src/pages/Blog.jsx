@@ -6,7 +6,6 @@ import { toast } from 'sonner'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
 import { useSEO } from '../utils/seo'
 
 const posts = [
@@ -127,11 +126,11 @@ export default function Blog() {
             </p>
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
               <div>
-                <p className="font-sora text-2xl font-bold text-white"><CountUp to={posts.length} /></p>
+                <p className="font-sora text-2xl font-bold text-white">{posts.length}</p>
                 <p className="text-xs text-white/40 font-general mt-1">Articles Published</p>
               </div>
               <div>
-                <p className="font-sora text-2xl font-bold text-white"><CountUp to={allCategories.length - 1} /></p>
+                <p className="font-sora text-2xl font-bold text-white">{allCategories.length - 1}</p>
                 <p className="text-xs text-white/40 font-general mt-1">Topic Categories</p>
               </div>
               <div>

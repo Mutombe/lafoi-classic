@@ -5,8 +5,6 @@ import { ArrowUpRight, X, ArrowRight, FunnelSimple, CaretLeft, CaretRight, Calen
 import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
-import CountUp from '../components/ui/CountUp'
-import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 const categories = ['All', 'Residential', 'Commercial', 'Hospitality', 'Retail']
@@ -79,9 +77,9 @@ export default function Portfolio() {
 
             <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
               {[
-                { value: <CountUp to={projects.length} />, label: 'Featured Projects' },
-                { value: <CountUp to={4} />, label: 'Sectors Served' },
-                { value: <CountUp to={16} suffix="+" />, label: 'Finishes Used' },
+                { value: projects.length, label: 'Featured Projects' },
+                { value: 4, label: 'Sectors Served' },
+                { value: '16+', label: 'Finishes Used' },
               ].map((stat, i) => (
                 <div key={i}>
                   <p className="font-sora text-2xl font-bold text-white">{stat.value}</p>
@@ -165,12 +163,10 @@ export default function Portfolio() {
                 <p className="text-white/70 font-general mt-2 max-w-xl">Book a free site assessment and join the gallery — every install is documented, photographed and added to our public catalogue.</p>
               </div>
               <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
-                <MagneticButton>
-                  <Link to="/contact" className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25">
-                    Book Free Survey
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </MagneticButton>
+                <Link to="/contact" className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green-dark transition-colors">
+                  Book Free Survey
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           </AnimatedSection>
