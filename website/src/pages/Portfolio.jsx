@@ -9,15 +9,22 @@ import { useSEO } from '../utils/seo'
 const categories = ['All', 'Residential', 'Commercial', 'Hospitality', 'Retail']
 
 const projects = [
-  { id: 1, title: 'Borrowdale Residence', category: 'Residential', image: 'https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?w=800&q=80', desc: 'Matte white stretch ceiling with perimeter LED cove lighting in a luxury home.', tall: true, vision: 'Elegant living room with premium ceiling design and sophisticated furnishings' },
-  { id: 2, title: 'Meikles Hotel Ballroom', category: 'Hospitality', image: 'https://images.unsplash.com/photo-1758194090785-8e09b7288199?w=800&q=80', desc: 'Translucent backlit ceiling spanning the entire ballroom with color-changing LED.', vision: 'Luxurious lobby with modern seating, gold accents, and dramatic ceiling lighting' },
-  { id: 3, title: 'TechHub Office', category: 'Commercial', image: 'https://images.unsplash.com/photo-1595513279524-fa90ad188c98?w=800&q=80', desc: 'Acoustic micro-perforated ceilings across an open-plan office.', vision: 'Professional studio with acoustic ceiling treatment and panels' },
-  { id: 4, title: 'Garden City Mall', category: 'Retail', image: 'https://images.unsplash.com/photo-1634146601607-9f319f71b5ee?w=800&q=80', desc: '3D wave-form ceilings creating dynamic visual flow through the retail space.', tall: true, vision: 'Large building with dramatic architectural ceiling and skylight' },
-  { id: 5, title: 'Avondale Villa', category: 'Residential', image: 'https://images.unsplash.com/photo-1765434670017-c0d28ecde29a?w=800&q=80', desc: 'Fiber optic starry sky ceiling in a master bedroom suite.', vision: 'Modern bedroom with large bed and ambient lighting design' },
-  { id: 6, title: 'The Ivy Restaurant', category: 'Hospitality', image: 'https://images.unsplash.com/photo-1618259715220-a89a4e4da76b?w=800&q=80', desc: 'Printed cloud ceiling with ambient warm lighting for a fine dining atmosphere.', vision: 'Country hotel interior with elegant design and warm atmosphere' },
-  { id: 7, title: 'Pearl Spa & Wellness', category: 'Hospitality', image: 'https://images.unsplash.com/photo-1730367019975-4ad8d9e14ef2?w=800&q=80', desc: 'Printed blue sky ceiling over the pool area with moisture-proof stretch membrane.', tall: true, vision: 'Indoor pool with stone walls and natural light from above' },
-  { id: 8, title: 'Sam Levy\'s Village', category: 'Retail', image: 'https://images.unsplash.com/photo-1768270181430-3e3672a32283?w=800&q=80', desc: 'Glossy stretch ceiling with integrated spotlighting for a modern retail showroom.', vision: 'Modern lobby with marble floors and decorative ceiling' },
-  { id: 9, title: 'Highlands Home', category: 'Residential', image: 'https://images.unsplash.com/photo-1639663742190-1b3dba2eebcf?w=800&q=80', desc: 'Full home installation -- living room, bedrooms, and bathroom stretch ceilings.', vision: 'Luxury modern living room with premium ceiling and furniture' },
+  { id: 1, title: 'Matte Black with Linear & Starry Sky', category: 'Residential', image: '/brand/images/1.jpg', desc: 'Matte black stretch ceiling integrated with linear lights and starry-sky perimeter — a master bedroom transformed into a calm, cinematic space.', tall: true, vision: 'Real install: matte black starry-sky stretch ceiling with linear LEDs in master bedroom' },
+  { id: 2, title: 'Gloss White with Linear Lights', category: 'Residential', image: '/brand/images/17.jpg', desc: 'Gloss white stretch ceiling with three parallel linear light lines spanning a double-volume stairwell — bouncing daylight through the entire space.', tall: true, vision: 'Real install: gloss white stretch ceiling with linear lights in stairwell' },
+  { id: 3, title: 'Art Print with Backlighting', category: 'Commercial', image: '/brand/images/45.jpg', desc: 'Custom marble-effect art print stretch ceiling with backlit perimeter — a centrepiece feature for a private boardroom.', vision: 'Real install: backlit marble art print stretch ceiling in conference room' },
+  { id: 4, title: 'Stars on Matte Black', category: 'Hospitality', image: '/brand/images/16.jpg', desc: 'Matte black stretch ceiling with embedded fibre-optic stars for a private home cinema — every screening becomes a night under the sky.', vision: 'Real install: matte black home cinema with fibre-optic starry sky' },
+  { id: 5, title: 'Dark Brown Satin with Linear Lights', category: 'Commercial', image: '/brand/images/24.jpg', desc: 'Satin dark-brown stretch ceiling with crossed linear light lines — a refined geometric statement for a premium hallway.', vision: 'Real install: dark brown satin stretch ceiling with crossed linear lights' },
+  { id: 6, title: 'Galaxy Stars with Downlights', category: 'Hospitality', image: '/brand/images/57.jpg', desc: 'Galaxy stretch ceiling with embedded fibre-optic stars and downlights — used in a luxury home cinema with chevron-padded walls.', tall: true, vision: 'Real install: galaxy starry sky stretch ceiling in luxury cinema' },
+  { id: 7, title: 'Silver Stretch Mirror with Downlights', category: 'Residential', image: '/brand/images/15.jpg', desc: 'Silver mirror stretch ceiling reflecting a statement chandelier — paired with downlights in an upscale dining room.', vision: 'Real install: silver mirror stretch ceiling with chandelier in dining room' },
+  { id: 8, title: 'Gloss Black with Shadow Edge', category: 'Commercial', image: '/brand/images/28.jpg', desc: 'Gloss black stretch ceiling with shadow-edge perimeter glow — high-rise corporate lounge with city views.', vision: 'Real install: gloss black stretch ceiling with shadow edge in office' },
+  { id: 9, title: 'White Translucent with Backlighting', category: 'Commercial', image: '/brand/images/52.jpg', desc: 'White translucent stretch ceiling acting as the primary light source over a corporate reception — paired with sky-print accent panel.', tall: true, vision: 'Real install: white translucent backlit ceiling in reception' },
+  { id: 10, title: 'Gloss White with Downlights', category: 'Residential', image: '/brand/images/3.jpg', desc: 'Gloss white stretch ceiling with embedded downlights and integrated linear LED — a high-volume stairwell turned into a sculptural lightwell.', vision: 'Real install: gloss white stretch ceiling with downlights in stairwell' },
+  { id: 11, title: 'Satin White Ceiling', category: 'Residential', image: '/brand/images/58.jpg', desc: 'Satin white stretch ceiling embedded with a soft starry-sky pattern — a serene principal bedroom with floor-to-ceiling drapes.', vision: 'Real install: satin white starry sky stretch ceiling in master bedroom' },
+  { id: 12, title: 'Matte White with Magnetic Track Lights', category: 'Commercial', image: '/brand/images/25.jpg', desc: 'Matte white stretch ceiling with parallel linear LED runs and magnetic track spots — a sharp, scalable system across an entire office floor.', vision: 'Real install: matte white office ceiling with linear LEDs and magnetic track' },
+  { id: 13, title: 'Floral Art Print with Backlighting', category: 'Hospitality', image: '/brand/images/19.jpg', desc: 'Backlit floral art print stretch ceiling — installed live by our team during a hospitality fit-out, with the print acting as the room\'s focal artwork.', vision: 'Real install: floral art print stretch ceiling being installed by Lafoi team' },
+  { id: 14, title: 'Matte Black with Shadow Edge', category: 'Hospitality', image: '/brand/images/22.jpg', desc: 'Matte black starry-sky stretch ceiling with shadow-edge perimeter and linear light line — penthouse lounge with cityscape views.', vision: 'Real install: matte black ceiling with starry sky and shadow edge in penthouse lounge' },
+  { id: 15, title: 'Satin White with Linear & Magnetic Tracks', category: 'Residential', image: '/brand/images/39.jpg', desc: 'Satin white stretch ceiling threaded with linear LEDs and magnetic track lights across an open-plan residential kitchen.', vision: 'Real install: satin white stretch ceiling with linear LEDs in residential kitchen' },
+  { id: 16, title: 'White Translucent Custom Lamps', category: 'Retail', image: '/brand/images/49.jpg', desc: 'White translucent custom-lit panels combined with silver mirror stretch ceiling and white perforated acoustic membrane — a layered retail entrance.', vision: 'Real install: geometric mirror ceiling with linear lights and translucent panels in retail' },
 ]
 
 export default function Portfolio() {
@@ -43,12 +50,12 @@ export default function Portfolio() {
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <OptimizedImage
-            src="https://images.unsplash.com/photo-1758194090785-8e09b7288199?w=1920&q=80"
-            alt="Luxury interior showcasing ceiling design"
+            src="/brand/images/5.jpg"
+            alt="Spiral staircase under custom chandelier and gloss stretch ceiling"
             className="w-full h-full object-cover"
             fill
             priority
-            vision="Luxurious lobby with modern seating, gold accents, and dramatic ceiling lighting"
+            vision="Real install: hospitality entrance with chandelier and gloss ceiling"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-lafoi-dark/90 via-lafoi-dark/75 to-lafoi-dark/50" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
@@ -68,7 +75,7 @@ export default function Portfolio() {
               Spaces we've<br /><span className="text-gradient">transformed</span>
             </h1>
             <p className="text-white/70 font-general text-lg max-w-xl">
-              Every project tells a story of transformation. Explore our curated collection of stretch ceiling and lighting installations across Zimbabwe.
+              A selection of real La Foi Designs installations across residential, hospitality, commercial and retail spaces in Zimbabwe — every photo a project we delivered.
             </p>
           </motion.div>
         </div>

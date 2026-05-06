@@ -40,10 +40,10 @@ const openings = [
 ]
 
 const perks = [
-  { icon: Globe, title: 'International Training', desc: 'Get trained by our German and Estonian partners.' },
-  { icon: Zap, title: 'Growth Opportunities', desc: 'Fast-growing company with room to advance quickly.' },
-  { icon: Heart, title: 'Team Culture', desc: 'Collaborative, supportive, and creative environment.' },
-  { icon: Users, title: 'Diverse Projects', desc: 'Work on exciting residential, commercial, and hospitality projects.' },
+  { icon: Globe, title: 'On-the-Job Training', desc: 'Learn the full stretch ceiling and lighting discipline from our in-house team.' },
+  { icon: Zap, title: 'Growth Opportunities', desc: 'A fast-growing company with real room to advance into senior roles.' },
+  { icon: Heart, title: 'Team Culture', desc: 'Collaborative, supportive and creative — every voice on the team is heard.' },
+  { icon: Users, title: 'Diverse Projects', desc: 'Work across residential, commercial, hospitality and institutional installs.' },
 ]
 
 export default function Careers() {
@@ -63,14 +63,13 @@ export default function Careers() {
       {/* Hero */}
       <section className="relative min-h-[55vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          {/* Vision: Team of diverse professionals at work, energetic and collaborative */}
           <OptimizedImage
-            src="https://images.unsplash.com/photo-1758691736975-9f7f643d178e?w=1920&q=80"
-            alt="La Foi Designs Team"
+            src="/brand/images/30.jpg"
+            alt="La Foi Designs team at the Luxury Stretch Ceilings marquee"
             className="w-full h-full object-cover"
             fill
             priority
-            vision="Diverse professional team smiling in a modern office setting"
+            vision="Real team photo at branded Lafoi marquee"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-lafoi-dark/90 via-lafoi-dark/70 to-lafoi-dark/40" />
         </div>

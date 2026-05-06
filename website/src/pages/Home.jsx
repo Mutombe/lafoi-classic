@@ -14,7 +14,7 @@ import { useSEO } from '../utils/seo'
 export default function Home() {
   useSEO({
     title: null,
-    description: "Zimbabwe's premier stretch ceiling and custom lighting solutions provider. German & Estonian engineered products transforming interior spaces since 2024.",
+    description: "Zimbabwe's first and leading stretch ceiling and lighting solutions provider. Pioneering Southern Africa with premium materials, bespoke design and an in-house install team since 2024.",
     path: '/',
   })
 
@@ -52,17 +52,14 @@ function HeroSection() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image with parallax */}
-      {/* Vision: Luxury interior space with a stunning stretch ceiling, ambient LED lighting creating a warm glow, 
-          modern living room or hotel lobby with premium furnishings */}
       <motion.div className="absolute inset-0" style={{ y, scale }}>
         <OptimizedImage
-          src="https://images.unsplash.com/photo-1639663742190-1b3dba2eebcf?w=1920&q=80"
-          alt="Luxury interior with modern ceiling design"
+          src="/brand/images/1.jpg"
+          alt="Luxury bedroom with starry sky stretch ceiling and perimeter LED — La Foi Designs installation"
           className="w-full h-full object-cover"
           fill
           priority
-          vision="Luxury modern living room with stunning ceiling and warm ambient lighting"
+          vision="Real Lafoi installation: starry sky stretch ceiling with perimeter LED in a luxury bedroom"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30" />
@@ -128,7 +125,7 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            German-engineered stretch ceilings and bespoke lighting solutions that transform ordinary spaces into extraordinary experiences.
+            Premium stretch ceilings and integrated lighting, pioneering Southern Africa's most innovative interior finish — durable, seamless, and designed around your vision.
           </motion.p>
 
           <motion.div
@@ -161,9 +158,9 @@ function HeroSection() {
             transition={{ delay: 1 }}
           >
             {[
-              { value: '200+', label: 'Projects Completed' },
-              { value: '100%', label: 'Client Satisfaction' },
-              { value: '2', label: 'International Partners' },
+              { value: 'First', label: 'In Southern Africa' },
+              { value: '10-Yr', label: 'Material Warranty' },
+              { value: '1–2 Days', label: 'Typical Install' },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-sora text-2xl font-bold text-white">{stat.value}</p>
@@ -197,7 +194,7 @@ function HeroSection() {
    PARTNERS MARQUEE - Scrolling trust badges
    ============================================ */
 function PartnersMarquee() {
-  const partners = ['German Precision', 'Estonian Innovation', 'ISO Certified', 'Premium Quality', 'Eco-Friendly', '10 Year Warranty', 'Fire Resistant', 'Moisture Proof']
+  const partners = ['Pioneering Southern Africa', 'Stretch Ceilings & Lighting', 'Eco-Friendly Materials', '10-Year Warranty', 'Fireproof (Bs-1 d0)', 'Acoustic & Translucent Options', 'Bespoke Design', 'Fast 1–2 Day Install']
   return (
     <div className="relative py-6 bg-lafoi-dark overflow-hidden">
       <div className="flex animate-marquee whitespace-nowrap">
@@ -228,34 +225,31 @@ function AboutPreview() {
           {/* Images - Bento-style grid */}
           <AnimatedSection direction="left" className="relative">
             <div className="grid grid-cols-12 gap-4">
-              {/* Vision: Stunning stretch ceiling installation with LED backlight in a modern room */}
               <div className="col-span-7 rounded-3xl overflow-hidden h-80">
                 <OptimizedImage
-                  src="https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?w=800&q=80"
-                  alt="Modern ceiling installation"
+                  src="/brand/images/15.jpg"
+                  alt="Dining room with reflective stretch ceiling and statement chandelier"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   fill
-                  vision="Elegant living room with premium ceiling design and sophisticated furnishings"
+                  vision="Real installation: dining room with reflective stretch ceiling and chandelier"
                 />
               </div>
-              {/* Vision: Close-up of ceiling texture or lighting detail */}
               <div className="col-span-5 rounded-3xl overflow-hidden h-80">
                 <OptimizedImage
-                  src="https://images.unsplash.com/photo-1767203330128-b4c27297f320?w=600&q=80"
-                  alt="Modern ceiling lighting detail"
+                  src="/brand/images/22.jpg"
+                  alt="Lounge with starry sky stretch ceiling and linear light line"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   fill
-                  vision="Modern ceiling lights with blue and white artistic accents"
+                  vision="Real installation: lounge with starry sky and integrated linear light"
                 />
               </div>
-              {/* Vision: Team at work or installation process */}
               <div className="col-span-5 rounded-3xl overflow-hidden h-52">
                 <OptimizedImage
-                  src="https://images.unsplash.com/photo-1742440710226-450e3b85c100?w=600&q=80"
-                  alt="Design team collaboration"
+                  src="/brand/images/30.jpg"
+                  alt="La Foi Designs team at the Luxury Stretch Ceilings marquee"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   fill
-                  vision="Designers collaborating in a warm architectural workspace"
+                  vision="Real team photo at branded Lafoi marquee"
                 />
               </div>
               {/* Accent card */}
@@ -284,22 +278,18 @@ function AboutPreview() {
               <span className="text-gradient"> inspire wonder</span>
             </h2>
             <p className="body-text text-base mb-6">
-              Founded in January 2024, La Foi Designs is proud to be Zimbabwe's first provider of stretch ceilings, 
-              dedicated to transforming interior spaces with elegance and style. We partnered with top-tier suppliers 
-              from Germany and Estonia, ensuring our products meet the highest standards of quality and innovation.
+              Founded in 2024, La Foi Designs is Zimbabwe's first and leading provider of premium stretch ceilings and lighting solutions. We are proud to pioneer this innovative construction technique in Southern Africa.
             </p>
             <p className="body-text text-base mb-8">
-              Our team underwent extensive training with these esteemed suppliers, equipping us with the expertise 
-              needed to deliver exceptional craftsmanship and service. We are committed to bringing international 
-              standards and cutting-edge design right to your doorstep.
+              Our mission is to transform interior spaces with durable, visually stunning and versatile ceilings that meet the highest standards of quality and design. Our team combines expertise in interior design, construction, and lighting technology to deliver bespoke solutions for residential, commercial, and institutional clients.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { icon: Award, label: 'German Quality' },
-                { icon: Sparkles, label: 'Estonian Innovation' },
-                { icon: Users, label: 'Expert Trained Team' },
-                { icon: Globe, label: 'International Standards' },
+                { icon: Award, label: 'Regional Pioneers' },
+                { icon: Sparkles, label: 'Bespoke Design' },
+                { icon: Users, label: 'In-House Trained Team' },
+                { icon: Globe, label: 'Eco-Friendly Materials' },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-3 p-3 rounded-xl bg-lafoi-green-soft">
                   <div className="w-9 h-9 rounded-lg bg-lafoi-green/10 flex items-center justify-center shrink-0">
@@ -332,55 +322,55 @@ function ServicesShowcase() {
   const services = [
     {
       icon: Layers,
-      title: 'Stretch Ceilings',
-      desc: 'Premium PVC and fabric membrane systems in matte, gloss, satin, translucent, and printed finishes. Seamless installation with 10+ year warranty.',
-      image: 'https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?w=800&q=80',
-      vision: 'Elegant living room with premium stretch ceiling and sophisticated lighting',
+      title: 'Stretch Ceiling Installation',
+      desc: 'Custom-designed, seamless and durable stretch ceilings — matte, gloss, satin, translucent and mirror finishes — for luxury homes, hospitality and corporate interiors.',
+      image: '/brand/images/17.jpg',
+      vision: 'Real install: gloss white double-volume stairwell with linear light lines',
       link: '/services/stretch-ceilings',
       color: 'from-lafoi-green/80 to-emerald-600/80',
     },
     {
       icon: Lightbulb,
-      title: 'Custom Lighting',
-      desc: 'Architectural LED systems, backlit ceilings, fiber optic starry skies, and programmable ambient lighting solutions designed for your space.',
-      image: 'https://images.unsplash.com/photo-1767203330128-b4c27297f320?w=800&q=80',
-      vision: 'Modern ceiling lights with artistic blue and white accents creating atmosphere',
+      title: 'Lighting Solutions',
+      desc: 'Integrated, energy-efficient lighting that complements every space — linear LED light lines, backlit translucent panels, fibre-optic starry skies and statement chandeliers.',
+      image: '/brand/images/5.jpg',
+      vision: 'Real install: spiral chandelier and linear ceiling lights in double-volume entrance',
       link: '/services/custom-lighting',
       color: 'from-amber-500/80 to-orange-600/80',
     },
     {
       icon: Printer,
-      title: 'Printed Ceilings',
-      desc: 'Transform your ceiling into a canvas with high-resolution printed designs -- from sky scenes and nature imagery to custom artwork and brand logos.',
-      image: 'https://images.unsplash.com/photo-1648858308067-2fdba1ca32f2?w=800&q=80',
-      vision: 'Beautiful sky with clouds, inspiration for printed ceiling designs',
+      title: 'Art Print Ceilings',
+      desc: 'Bespoke photographic prints on stretch membranes using hypoallergenic, moisture-resistant and eco-friendly inks — sky scenes, marble effects, custom artwork and brand graphics.',
+      image: '/brand/images/45.jpg',
+      vision: 'Real install: marble art print stretch ceiling with backlighting in conference room',
       link: '/services/printed-ceilings',
       color: 'from-violet-500/80 to-purple-600/80',
     },
     {
       icon: Box,
       title: '3D Ceiling Forms',
-      desc: 'Sculptural ceiling installations that add depth and dimension. Curves, waves, and geometric 3D forms that make your space truly one-of-a-kind.',
-      image: 'https://images.unsplash.com/photo-1634146601607-9f319f71b5ee?w=800&q=80',
-      vision: 'Dramatic architectural ceiling with skylight creating dynamic 3D forms',
+      desc: 'Sculptural multi-level installations with curves, waves and geometric 3D forms. Dramatic visual focal points engineered with our seamless membrane system.',
+      image: '/brand/images/20.jpg',
+      vision: 'Real install: wavy gloss white stretch ceiling in a dressing room',
       link: '/services/3d-ceilings',
       color: 'from-cyan-500/80 to-blue-600/80',
     },
     {
       icon: Volume2,
-      title: 'Acoustic Solutions',
-      desc: 'Micro-perforated stretch ceilings and acoustic panels that combine beauty with sound management for offices, studios, and hospitality venues.',
-      image: 'https://images.unsplash.com/photo-1595513279524-fa90ad188c98?w=800&q=80',
-      vision: 'Professional recording studio with acoustic ceiling treatment and panels',
+      title: 'Acoustic Stretch Ceilings',
+      desc: 'Micro and macro-perforated membranes — Volans, Auriga, Orion, Cetus and Libra — engineered to absorb sound while staying visually seamless. Ideal for offices, studios and venues.',
+      image: '/brand/images/47.jpg',
+      vision: 'Real install: perforated acoustic stretch ceiling in a cafe / restaurant',
       link: '/services/acoustic',
       color: 'from-teal-500/80 to-emerald-600/80',
     },
     {
       icon: Palette,
-      title: 'Design Consulting',
-      desc: 'End-to-end design consultation from concept to completion. Our trained experts help you choose the perfect ceiling and lighting combination.',
-      image: 'https://images.unsplash.com/photo-1768270181430-3e3672a32283?w=800&q=80',
-      vision: 'Modern lobby with marble floors and decorative ceiling design',
+      title: 'Design Consultation',
+      desc: 'End-to-end consultation from brief to handover. Work directly with our experts to specify materials, colours and lighting tailored to your needs and style.',
+      image: '/brand/images/49.jpg',
+      vision: 'Real install: geometric gold mirror ceiling with linear lights in a retail entrance',
       link: '/services',
       color: 'from-rose-500/80 to-pink-600/80',
     },
@@ -457,10 +447,10 @@ function ServicesShowcase() {
    ============================================ */
 function StatsCounter() {
   const stats = [
-    { number: '200+', label: 'Projects Delivered', suffix: '' },
-    { number: '100%', label: 'Client Satisfaction', suffix: '' },
-    { number: '2', label: 'International Partners', suffix: '' },
-    { number: '10+', label: 'Year Warranty', suffix: '' },
+    { number: 'First', label: 'In Southern Africa', suffix: '' },
+    { number: '16+', label: 'Premium Finishes', suffix: '' },
+    { number: '50m', label: 'Light Lines, No Joints', suffix: '' },
+    { number: '10-Yr', label: 'Material Warranty', suffix: '' },
   ]
 
   return (
@@ -486,12 +476,12 @@ function StatsCounter() {
    ============================================ */
 function PortfolioPreview() {
   const projects = [
-    { title: 'The Grand Ballroom', category: 'Commercial', image: 'https://images.unsplash.com/photo-1758194090785-8e09b7288199?w=800&q=80', tall: true, vision: 'Luxurious lobby with modern seating, gold accents, and dramatic ceiling lighting' },
-    { title: 'Serene Residence', category: 'Residential', image: 'https://images.unsplash.com/photo-1639663742190-1b3dba2eebcf?w=800&q=80', vision: 'Modern luxury living room with ambient lighting and premium ceiling' },
-    { title: 'Azure Pool Spa', category: 'Hospitality', image: 'https://images.unsplash.com/photo-1730367019975-4ad8d9e14ef2?w=800&q=80', vision: 'Indoor pool with stone walls and natural light' },
-    { title: 'Corporate HQ', category: 'Office', image: 'https://images.unsplash.com/photo-1595513279524-fa90ad188c98?w=800&q=80', vision: 'Professional recording studio with acoustic ceiling panels' },
-    { title: 'Starlit Bedroom', category: 'Residential', image: 'https://images.unsplash.com/photo-1765434670017-c0d28ecde29a?w=800&q=80', tall: true, vision: 'Modern bedroom with large bed and warm ambient lighting' },
-    { title: 'Modern Showroom', category: 'Retail', image: 'https://images.unsplash.com/photo-1768270181430-3e3672a32283?w=800&q=80', vision: 'Modern lobby with marble floors and decorative ceiling design' },
+    { title: 'Starry Sky Master Suite', category: 'Residential', image: '/brand/images/1.jpg', tall: true, vision: 'Real install: starry sky stretch ceiling with perimeter LED in a master bedroom' },
+    { title: 'Spiral Entrance Chandelier', category: 'Hospitality', image: '/brand/images/5.jpg', vision: 'Real install: spiral staircase under custom chandelier and linear lighting' },
+    { title: 'Reflective Dining Room', category: 'Residential', image: '/brand/images/15.jpg', vision: 'Real install: dining room with reflective stretch ceiling and statement chandelier' },
+    { title: 'Cinema with Galaxy Sky', category: 'Hospitality', image: '/brand/images/57.jpg', vision: 'Real install: home cinema with fibre-optic galaxy sky' },
+    { title: 'Showroom Round Translucent', category: 'Commercial', image: '/brand/images/51.jpg', tall: true, vision: 'Real install: car showroom round translucent stretch ceiling' },
+    { title: 'Backlit Marble Conference', category: 'Commercial', image: '/brand/images/45.jpg', vision: 'Real install: backlit marble art print stretch ceiling in conference room' },
   ]
 
   return (
@@ -548,10 +538,10 @@ function PortfolioPreview() {
    ============================================ */
 function ProcessSection() {
   const steps = [
-    { num: '01', title: 'Consultation', desc: 'We meet to understand your vision, assess the space, and discuss design possibilities tailored to your needs.' },
-    { num: '02', title: 'Design & Plan', desc: 'Our team creates detailed designs with material selections, lighting plans, and precise measurements.' },
-    { num: '03', title: 'Manufacturing', desc: 'Your custom ceiling is manufactured to exact specifications using premium German and Estonian materials.' },
-    { num: '04', title: 'Installation', desc: 'Our trained technicians install your ceiling with precision and care, typically completing within a day.' },
+    { num: '01', title: 'Listen', desc: 'We meet on-site to understand your vision, brief and constraints — and assess the space, lighting and existing finishes in detail.' },
+    { num: '02', title: 'Design', desc: 'We specify materials, finishes and lighting layouts — translating your brief into a precise plan with samples and measurements.' },
+    { num: '03', title: 'Install', desc: 'Our in-house team installs your stretch ceiling and lighting in 1–2 days with no skimming, no painting and minimal disruption.' },
+    { num: '04', title: 'Maintain', desc: 'Ongoing after-sales support and maintenance to keep your ceilings and lighting systems looking and performing as new.' },
   ]
 
   return (
@@ -598,22 +588,24 @@ function ProcessSection() {
 function TestimonialsSection() {
   const testimonials = [
     {
-      name: 'Tatenda M.',
-      role: 'Homeowner, Borrowdale',
-      text: 'La Foi Designs completely transformed our living room. The stretch ceiling with integrated LED lighting created an atmosphere we never thought possible. Their attention to detail is remarkable.',
-      rating: 5,
+      name: 'GAP Construction',
+      role: 'Company',
+      text: 'Professional stretch ceiling installation with a clean, modern finish. Very satisfied with the outcome.',
     },
     {
-      name: 'Sarah K.',
-      role: 'Interior Designer',
-      text: 'As a designer, I recommend La Foi to all my clients. Their printed ceiling for a spa project was breathtaking — a cloud sky that made the entire space feel infinite. World-class quality right here in Harare.',
-      rating: 5,
+      name: 'Pro-Fitness Health Club',
+      role: 'Company',
+      text: 'I love the detail and elegance they brought into our gym. Highly recommended!',
     },
     {
-      name: 'Michael C.',
-      role: 'Hotel Manager, Harare',
-      text: 'The 3D ceiling installations in our hotel lobby have become a talking point for every guest. The team was professional, efficient, and the result exceeded our expectations tenfold.',
-      rating: 5,
+      name: 'MAG Grip',
+      role: 'Company',
+      text: 'Efficient work delivered to a high standard. Met all project expectations.',
+    },
+    {
+      name: 'University of Zimbabwe',
+      role: 'Institution',
+      text: 'La Foi Designs delivered beyond expectations — professional, timely, and flawless finishes.',
     },
   ]
 
@@ -631,20 +623,15 @@ function TestimonialsSection() {
           </h2>
         </AnimatedSection>
 
-        <StaggerContainer className="grid md:grid-cols-3 gap-6" staggerDelay={0.1}>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.1}>
           {testimonials.map((t, i) => (
             <StaggerItem key={i}>
-              <div className="h-full p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300">
-                <Quote size={28} className="text-lafoi-green/30 mb-4" />
-                <p className="text-white/70 font-general text-sm leading-relaxed mb-6">{t.text}</p>
-                <div className="flex items-center gap-1 mb-4">
-                  {Array.from({ length: t.rating }).map((_, j) => (
-                    <Star key={j} size={14} className="text-lafoi-green fill-lafoi-green" />
-                  ))}
-                </div>
-                <div>
+              <div className="h-full p-7 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex flex-col">
+                <Quote size={24} className="text-lafoi-green/30 mb-4" />
+                <p className="text-white/70 font-general text-sm leading-relaxed mb-6 flex-1">{t.text}</p>
+                <div className="pt-4 border-t border-white/10">
                   <p className="font-sora text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-white/40 font-general">{t.role}</p>
+                  <span className="inline-block mt-1.5 px-2 py-0.5 rounded-full bg-lafoi-green/15 text-[10px] text-lafoi-green-light font-sora font-semibold uppercase tracking-wider">{t.role}</span>
                 </div>
               </div>
             </StaggerItem>
@@ -662,16 +649,15 @@ function TestimonialsSection() {
 function CTASection() {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Vision: Overhead shot of a stunning stretch ceiling with dramatic lighting, looking up */}
       <div className="absolute inset-0">
         <OptimizedImage
-          src="https://images.unsplash.com/photo-1758194090785-8e09b7288199?w=1920&q=80"
-          alt="Luxurious interior with dramatic ceiling design"
+          src="/brand/images/22.jpg"
+          alt="Lounge with starry sky stretch ceiling and integrated linear light line"
           className="w-full h-full object-cover"
           fill
-          vision="High-end lobby with modern design, dramatic lighting, and elegant ceiling"
+          vision="Real install: penthouse lounge with starry sky and linear light"
         />
-        <div className="absolute inset-0 bg-lafoi-dark/85 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-lafoi-dark/70" />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
@@ -684,10 +670,10 @@ function CTASection() {
             <Sparkles size={28} className="text-lafoi-green" />
           </motion.div>
           <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
-            Ready to transform<br />your space?
+            Partner with Zimbabwe's first<br />stretch ceiling provider
           </h2>
-          <p className="text-white/50 font-general text-lg mb-10 max-w-lg mx-auto">
-            Let's create something extraordinary together. Book a free consultation and discover the possibilities.
+          <p className="text-white/60 font-general text-lg mb-10 max-w-xl mx-auto">
+            Contact us today for a consultation and discover the endless possibilities for your next residential, commercial or institutional project.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

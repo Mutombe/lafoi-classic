@@ -11,45 +11,72 @@ const allServices = [
   {
     slug: 'stretch-ceilings',
     icon: Layers,
-    title: 'Stretch Ceilings',
+    title: 'Stretch Ceiling Installation',
     subtitle: 'Premium Membrane Systems',
-    hero: 'https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?w=1920&q=80',
-    heroVision: 'Elegant living room with premium stretch ceiling and warm lighting',
-    desc: 'Our stretch ceilings are manufactured from premium PVC and fabric membranes sourced from Germany and Estonia. Available in over 200 colors and multiple finishes, they transform any space into a masterpiece.',
-    features: ['Matte, Gloss & Satin finishes', 'Over 200 color options', 'Translucent & Backlit options', 'Moisture & mildew resistant', 'Fire-rated (Class B-s1, d0)', 'Quick installation (usually 1 day)', '10-year manufacturer warranty', 'Eco-friendly & recyclable'],
-    applications: ['Living rooms & bedrooms', 'Bathrooms & kitchens', 'Hotels & restaurants', 'Office spaces', 'Medical facilities', 'Retail showrooms'],
-    image: 'https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?w=800&q=80',
-    imageVision: 'Modern home interior with smooth stretch ceiling and integrated lighting',
+    hero: '/brand/images/17.jpg',
+    heroVision: 'Real install: gloss white double-volume stairwell with linear LED light lines',
+    desc: 'Custom-designed, seamless and durable stretch ceilings in matte, gloss, satin, mirror and translucent finishes. Suitable for every interior — from luxury homes and corporate offices to hotels, gyms and retail. Installation takes 1–2 days with no skimming or painting required.',
+    features: [
+      'Matte, gloss, satin, mirror & translucent',
+      '18+ lacquered colours available',
+      'Mirror panels up to 1.25m × 28m',
+      'Bs-1 d0 / Bs-2 d0 fire-rated',
+      'Resistant to mould, moisture & cracks',
+      'Installed in 1–2 days',
+      '10-year material warranty',
+      'No skimming or painting needed',
+    ],
+    applications: ['Luxury homes & bedrooms', 'Bathrooms & kitchens', 'Hotels & restaurants', 'Offices & boardrooms', 'Hospitals & clinics', 'Retail & showrooms'],
+    image: '/brand/images/17.jpg',
+    imageVision: 'Real install: gloss white double-volume stairwell with linear LED',
     color: 'from-lafoi-green to-emerald-600',
     bgAccent: 'bg-lafoi-green/10',
   },
   {
     slug: 'custom-lighting',
     icon: Lightbulb,
-    title: 'Custom Lighting',
-    subtitle: 'Architectural Illumination',
-    hero: 'https://images.unsplash.com/photo-1767203330128-b4c27297f320?w=1920&q=80',
-    heroVision: 'Modern ceiling lights with artistic blue and white accents',
-    desc: 'From fiber optic starry skies to programmable LED arrays, our lighting solutions create atmosphere and ambiance that elevate any interior to new heights.',
-    features: ['LED strip integration', 'Fiber optic starry sky effects', 'Backlit ceiling panels', 'Color-changing RGB systems', 'Smart home integration', 'Energy-efficient solutions', 'Dimmable controls', 'Custom light patterns'],
-    applications: ['Master bedrooms', 'Home cinemas', 'Spa & wellness centers', 'Restaurant ambiance', 'Nightclub & lounge design', 'Children\'s rooms'],
-    image: 'https://images.unsplash.com/photo-1767203330128-b4c27297f320?w=800&q=80',
-    imageVision: 'Room with LED integrated ceiling creating atmospheric lighting',
+    title: 'Lighting Solutions',
+    subtitle: 'Integrated Architectural Lighting',
+    hero: '/brand/images/5.jpg',
+    heroVision: 'Real install: spiral chandelier in double-volume entrance with linear ceiling lights',
+    desc: 'Integrated, energy-efficient lighting systems engineered to complement and enhance your space — linear LED light lines up to 50 metres without joints, fibre-optic starry skies, magnetic track systems, downlights and statement chandeliers.',
+    features: [
+      'Linear light lines up to 50m, no joints',
+      'Fibre-optic starry sky ceilings',
+      'Backlit translucent panels',
+      'Magnetic track lighting',
+      'Statement chandelier integration',
+      'Energy-efficient LED systems',
+      'Dimmable & smart-home ready',
+      'Custom light patterns & layouts',
+    ],
+    applications: ['Master bedrooms & cinemas', 'Spa & wellness rooms', 'Hotel lobbies & lounges', 'Restaurants & bars', 'Showrooms & retail', 'Conference & boardrooms'],
+    image: '/brand/images/22.jpg',
+    imageVision: 'Real install: lounge with starry sky stretch ceiling and linear light line',
     color: 'from-amber-500 to-orange-600',
     bgAccent: 'bg-amber-500/10',
   },
   {
     slug: 'printed-ceilings',
     icon: Printer,
-    title: 'Printed Ceilings',
-    subtitle: 'Custom Visual Expressions',
-    hero: 'https://images.unsplash.com/photo-1648858308067-2fdba1ca32f2?w=1920&q=80',
-    heroVision: 'Beautiful sky with clouds, inspiration for printed ceiling designs',
-    desc: 'Transform your ceiling into a canvas with high-resolution UV-printed designs. From photorealistic sky scenes to custom artwork and brand logos, the possibilities are limitless.',
-    features: ['UV-resistant HD printing', 'Custom artwork & photos', 'Brand logo integration', 'Nature scenes & sky effects', 'Geometric patterns', 'Washable & durable', 'Seamless large format', 'Color-accurate reproduction'],
-    applications: ['Swimming pools & spas', 'Children\'s rooms & nurseries', 'Themed restaurants', 'Corporate branding', 'Retail environments', 'Medical & dental clinics'],
-    image: 'https://images.unsplash.com/photo-1648858308067-2fdba1ca32f2?w=800&q=80',
-    imageVision: 'Sky with clouds creating beautiful natural patterns',
+    title: 'Art Print Ceilings',
+    subtitle: 'Bespoke Photographic Prints',
+    hero: '/brand/images/45.jpg',
+    heroVision: 'Real install: backlit marble art print stretch ceiling in conference room',
+    desc: 'Transform your ceiling into a canvas with custom photographic prints on stretch membranes — sky scenes, marble effects, floral motifs, custom artwork or brand graphics. Printed with hypoallergenic, moisture-resistant inks that are eco-friendly and safe for every room.',
+    features: [
+      'Hypoallergenic, eco-friendly inks',
+      'Moisture-resistant & washable',
+      'Custom photography & artwork',
+      'Floral, marble & sky scenes',
+      'Brand graphics & logos',
+      'Backlit options for glow effect',
+      'Seamless large-format printing',
+      'Colour-accurate reproduction',
+    ],
+    applications: ['Pools & spas', 'Themed restaurants', 'Children\'s rooms & nurseries', 'Hotel lobbies', 'Corporate branding', 'Medical & dental clinics'],
+    image: '/brand/images/37.jpg',
+    imageVision: 'Real install: bathroom with sky-print stretch ceiling and stone walls',
     color: 'from-violet-500 to-purple-600',
     bgAccent: 'bg-violet-500/10',
   },
@@ -57,44 +84,71 @@ const allServices = [
     slug: '3d-ceilings',
     icon: Box,
     title: '3D Ceiling Forms',
-    subtitle: 'Sculptural Architecture',
-    hero: 'https://images.unsplash.com/photo-1634146601607-9f319f71b5ee?w=1920&q=80',
-    heroVision: 'Large modern building with dramatic architectural ceiling with skylight',
-    desc: 'Push the boundaries of interior design with three-dimensional ceiling installations. Waves, cones, domes, and custom organic forms that make spaces unforgettable.',
-    features: ['Wave & curve forms', 'Cone & dome shapes', 'Custom organic designs', 'Multi-level installations', 'Integrated lighting options', 'Lightweight construction', 'Architectural focal points', 'Unlimited shape possibilities'],
-    applications: ['Hotel lobbies', 'Corporate reception areas', 'Event venues', 'Exhibition spaces', 'Luxury residences', 'Architectural features'],
-    image: 'https://images.unsplash.com/photo-1634146601607-9f319f71b5ee?w=800&q=80',
-    imageVision: 'Dramatic architectural ceiling with skylight creating dynamic forms',
+    subtitle: 'Sculptural Multi-Level Designs',
+    hero: '/brand/images/20.jpg',
+    heroVision: 'Real install: wavy gloss white stretch ceiling in a dressing room',
+    desc: 'Push interior design beyond the flat plane with sculptural, multi-level stretch ceiling installations. Waves, curves, recessed coves and geometric forms — engineered with our seamless membrane system and integrated lighting.',
+    features: [
+      'Wave, curve & dome forms',
+      'Multi-level recessed coves',
+      'Custom organic geometries',
+      'Integrated lighting channels',
+      'Lightweight & seamless',
+      'Combined with mirror & gloss',
+      'Architectural focal points',
+      'Bespoke to space dimensions',
+    ],
+    applications: ['Hotel lobbies & ballrooms', 'Corporate reception areas', 'Showrooms & retail', 'Event venues', 'Luxury residences', 'Architectural features'],
+    image: '/brand/images/42.jpg',
+    imageVision: 'Real install: high-volume stairwell with linear light geometry around sculpture',
     color: 'from-cyan-500 to-blue-600',
     bgAccent: 'bg-cyan-500/10',
   },
   {
     slug: 'acoustic',
     icon: Volume2,
-    title: 'Acoustic Solutions',
-    subtitle: 'Sound Management',
-    hero: 'https://images.unsplash.com/photo-1595513279524-fa90ad188c98?w=1920&q=80',
-    heroVision: 'Professional recording studio with acoustic treatment',
-    desc: 'Micro-perforated stretch ceilings that combine visual elegance with superior sound absorption. Perfect for spaces where both aesthetics and acoustics matter.',
-    features: ['Micro-perforated membranes', 'NRC up to 0.90', 'Hidden acoustic backing', 'Seamless appearance', 'All finishes available', 'Sound level reduction', 'Echo elimination', 'Meets acoustic standards'],
-    applications: ['Recording studios', 'Conference rooms', 'Open-plan offices', 'Restaurants & cafes', 'Cinemas & theatres', 'Educational facilities'],
-    image: 'https://images.unsplash.com/photo-1595513279524-fa90ad188c98?w=800&q=80',
-    imageVision: 'Professional recording studio with acoustic treatment panels',
+    title: 'Acoustic Stretch Ceilings',
+    subtitle: 'Sound Absorption + Visual Calm',
+    hero: '/brand/images/47.jpg',
+    heroVision: 'Real install: perforated acoustic stretch ceiling in cafe / restaurant interior',
+    desc: 'Perforated stretch membranes — Volans, Volans premium, Auriga, Orion (micro-perforation) and Cetus, Libra (macro-perforation) — engineered to absorb sound while staying visually seamless. Perfect where aesthetics and acoustics need to coexist.',
+    features: [
+      '6 perforated membrane options',
+      'Volans, Auriga, Orion micro-perf',
+      'Cetus, Libra macro-perf',
+      'Hidden acoustic backing',
+      'Seamless visual appearance',
+      'Echo & reverberation control',
+      'All standard finishes available',
+      'Meets acoustic standards',
+    ],
+    applications: ['Conference & boardrooms', 'Open-plan offices', 'Restaurants & cafes', 'Cinemas & home theatres', 'Recording studios', 'Educational & lecture spaces'],
+    image: '/brand/images/48.jpg',
+    imageVision: 'Real install: perforated star ceiling with backlit dot pattern',
     color: 'from-teal-500 to-emerald-600',
     bgAccent: 'bg-teal-500/10',
   },
   {
     slug: 'consulting',
     icon: Palette,
-    title: 'Design Consulting',
-    subtitle: 'Vision to Reality',
-    hero: 'https://images.unsplash.com/photo-1768270181430-3e3672a32283?w=1920&q=80',
-    heroVision: 'Modern lobby with marble floors and decorative ceiling design',
-    desc: 'Our trained design consultants guide you through every step -- from material selection and color matching to lighting design and 3D visualization of your finished space.',
-    features: ['Free initial consultation', 'Site assessment', '3D visualization', 'Material sampling', 'Color matching', 'Lighting design', 'Budget planning', 'Project management'],
-    applications: ['New builds', 'Renovations', 'Commercial fit-outs', 'Interior redesigns', 'Event installations', 'Architectural projects'],
-    image: 'https://images.unsplash.com/photo-1768270181430-3e3672a32283?w=800&q=80',
-    imageVision: 'Modern lobby with marble floors and beautiful decorative ceiling',
+    title: 'Design Consultation',
+    subtitle: 'Bespoke Solutions, Brief to Handover',
+    hero: '/brand/images/49.jpg',
+    heroVision: 'Real install: geometric gold mirror ceiling with linear lights in retail entrance',
+    desc: 'Work directly with our experts to create bespoke solutions tailored to your space, taste and budget. Site assessment, material specification, lighting design, samples and full project management — all delivered with ongoing maintenance support.',
+    features: [
+      'Free initial site assessment',
+      'Material & finish specification',
+      'Lighting layout design',
+      'Material sampling on request',
+      'Colour & finish matching',
+      'Project programme & budgeting',
+      'In-house project management',
+      'Ongoing maintenance support',
+    ],
+    applications: ['New builds', 'Renovations', 'Commercial fit-outs', 'Hotel & hospitality projects', 'Institutional installations', 'Retail rebrand programmes'],
+    image: '/brand/images/52.jpg',
+    imageVision: 'Real install: reception with sky-print ceiling and modern signage',
     color: 'from-rose-500 to-pink-600',
     bgAccent: 'bg-rose-500/10',
   },
@@ -171,10 +225,10 @@ function ServicesHero() {
           <h1 className="heading-xl text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white mt-4 mb-6">
             Ceiling & lighting
             <br />
-            <span className="text-gradient">solutions catalog</span>
+            <span className="text-gradient">solutions catalogue</span>
           </h1>
           <p className="text-white/60 font-general text-lg max-w-xl leading-relaxed">
-            From premium stretch ceilings to bespoke lighting design, discover the full range of services that make La Foi Designs Zimbabwe's leading interior ceiling provider.
+            Stretch ceiling installation, integrated lighting, art print, acoustic and bespoke design consultation — backed by ongoing after-sales support and a 10-year material warranty.
           </p>
 
           {/* Quick service pills */}
@@ -211,7 +265,7 @@ function ServicesGrid() {
             Comprehensive solutions for <span className="text-gradient">every space</span>
           </h2>
           <p className="text-lafoi-gray font-general">
-            Each service is backed by German and Estonian engineering, installed by certified professionals, and protected by comprehensive warranties.
+            Every service is delivered by our in-house team — fast 1–2 day installs, fireproof and waterproof materials, and a 10-year material warranty on every project.
           </p>
         </AnimatedSection>
 
@@ -258,10 +312,10 @@ function ServicesGrid() {
 
 function ProcessOverview() {
   const steps = [
-    { num: '01', title: 'Free Consultation', desc: 'We assess your space and discuss design possibilities.' },
-    { num: '02', title: 'Custom Design', desc: 'We create detailed plans with material and lighting selections.' },
-    { num: '03', title: 'Manufacturing', desc: 'Your ceiling is custom-made using premium European materials.' },
-    { num: '04', title: 'Installation', desc: 'Expert installation, typically completed in just one day.' },
+    { num: '01', title: 'Listen', desc: 'On-site visit, brief and assessment of substrate, lighting and finishes.' },
+    { num: '02', title: 'Design', desc: 'Material, finish and lighting specification with samples and measurements.' },
+    { num: '03', title: 'Install', desc: '1–2 day install by our in-house team — no skimming, no painting, minimal disruption.' },
+    { num: '04', title: 'Maintain', desc: 'Ongoing after-sales support to keep ceilings and lighting performing at their best.' },
   ]
 
   return (
@@ -299,10 +353,10 @@ function ProcessOverview() {
 
 function WhyChooseUs() {
   const reasons = [
-    { title: 'First in Zimbabwe', desc: 'We pioneered stretch ceilings in Zimbabwe, bringing technology never before seen in the country.', icon: Star },
-    { title: 'International Quality', desc: 'German and Estonian manufactured materials meet the highest European quality and safety standards.', icon: Sparkles },
-    { title: 'Expert Installation', desc: 'Our team trained directly with European manufacturers for flawless, fast installations.', icon: Check },
-    { title: 'Full Warranty', desc: 'Every installation is backed by comprehensive manufacturer warranties of 10+ years.', icon: Sparkles },
+    { title: 'Regional Pioneers', desc: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions.', icon: Star },
+    { title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', icon: Sparkles },
+    { title: 'Fast & Cost-Effective', desc: 'Quicker 1–2 day installs reduce project costs and timelines — no skimming or painting.', icon: Check },
+    { title: 'Durability & Safety', desc: 'Resistant to mould, moisture and cracks, Bs-1 d0 fire-rated, with a 10-year material warranty.', icon: Sparkles },
   ]
 
   return (
@@ -336,21 +390,21 @@ function ServicesCTA() {
     <section className="relative py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0">
         <OptimizedImage
-          src="https://images.unsplash.com/photo-1758194090785-8e09b7288199?w=1920&q=80"
-          alt="Luxury interior"
+          src="/brand/images/51.jpg"
+          alt="Luxury car showroom with circular translucent stretch ceiling"
           className="w-full h-full object-cover"
           fill
-          vision="Luxurious hotel lobby with dramatic lighting and gold accents"
+          vision="Real install: high-end auto showroom under translucent ceiling halo"
         />
-        <div className="absolute inset-0 bg-lafoi-dark/85 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-lafoi-dark/70" />
       </div>
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimatedSection>
           <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
             Not sure which solution<br />is right for you?
           </h2>
-          <p className="text-white/50 font-general text-lg mb-10 max-w-lg mx-auto">
-            Book a free consultation and our design experts will help you choose the perfect ceiling and lighting combination for your space.
+          <p className="text-white/60 font-general text-lg mb-10 max-w-xl mx-auto">
+            Contact us today for a consultation and our team will help you choose the right ceiling and lighting combination for your space, brief and budget.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
@@ -485,7 +539,7 @@ function ServiceDetail({ service }) {
                       <span className="text-xs text-lafoi-gray font-general">100% Satisfaction</span>
                     </div>
                     <p className="text-xs text-lafoi-gray-medium font-general leading-relaxed">
-                      Backed by 10-year manufacturer warranty. German and Estonian quality standards.
+                      Backed by a 10-year material warranty. Bs-1 d0 fire-rated, waterproof and acoustic-rated where applicable.
                     </p>
                   </div>
                 </div>

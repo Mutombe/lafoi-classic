@@ -6,7 +6,7 @@ import {
   Search, X, Menu, ChevronDown, ArrowRight,
   Sparkles, Building2, Briefcase, Camera, Phone,
   HelpCircle, Newspaper, Users, Lightbulb, Palette,
-  LayoutGrid, Zap, Star
+  LayoutGrid, Zap, Star, PlayCircle
 } from 'lucide-react'
 
 const navGroups = [
@@ -15,6 +15,7 @@ const navGroups = [
     items: [
       { name: 'Our Story', path: '/about', icon: Sparkles, desc: 'The journey behind La Foi' },
       { name: 'Portfolio', path: '/portfolio', icon: Camera, desc: 'Stunning transformations' },
+      { name: 'Videos', path: '/videos', icon: PlayCircle, desc: 'Watch real installations' },
       { name: 'Blog & Insights', path: '/blog', icon: Newspaper, desc: 'Design trends & tips' },
     ],
   },
@@ -44,19 +45,20 @@ const searchableContent = [
   { title: 'Acoustic Solutions', path: '/services/acoustic', section: 'Services', keywords: 'acoustic sound noise reduction' },
   { title: 'About La Foi Designs', path: '/about', section: 'Company', keywords: 'about company history story team' },
   { title: 'Our Portfolio', path: '/portfolio', section: 'Projects', keywords: 'portfolio gallery projects work showcase' },
+  { title: 'Videos', path: '/videos', section: 'Projects', keywords: 'videos walkthrough installation footage clips' },
   { title: 'Contact Us', path: '/contact', section: 'Connect', keywords: 'contact reach phone email address' },
   { title: 'Career Opportunities', path: '/careers', section: 'Connect', keywords: 'careers jobs hiring work opportunities' },
   { title: 'Frequently Asked Questions', path: '/faq', section: 'Support', keywords: 'faq questions help support answers' },
   { title: 'Blog & Design Insights', path: '/blog', section: 'Content', keywords: 'blog articles news design trends' },
-  { title: 'German Engineered Quality', path: '/about', section: 'Company', keywords: 'german quality engineering standards' },
-  { title: 'Estonian Innovation', path: '/about', section: 'Company', keywords: 'estonian innovation partner supplier' },
+  { title: 'Regional Pioneers', path: '/about', section: 'Company', keywords: 'first southern africa pioneer regional' },
+  { title: 'Acoustic Stretch Ceilings', path: '/services/acoustic', section: 'Services', keywords: 'acoustic perforated volans auriga orion sound' },
   { title: 'Residential Projects', path: '/portfolio', section: 'Projects', keywords: 'residential home house living room bedroom' },
   { title: 'Commercial Installations', path: '/portfolio', section: 'Projects', keywords: 'commercial office hotel restaurant retail' },
   { title: 'Free Consultation', path: '/contact', section: 'Connect', keywords: 'consultation free quote estimate' },
 ]
 
 // Pages with dark hero backgrounds where navbar text must be white
-const darkHeroPages = ['/', '/portfolio', '/services', '/faq', '/careers']
+const darkHeroPages = ['/', '/portfolio', '/videos', '/services', '/faq', '/careers']
 // Pages with sub-routes that also have dark heroes
 const darkHeroPrefixes = ['/services/']
 

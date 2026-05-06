@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react'
 import { toast } from 'sonner'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import { useSEO } from '../utils/seo'
@@ -57,7 +57,7 @@ function ContactHero() {
             Let's bring your<br /><span className="text-gradient">vision to life</span>
           </h1>
           <p className="body-text text-lg max-w-xl leading-relaxed">
-            Ready to transform your space? Reach out for a free consultation and discover what's possible with stretch ceilings and custom lighting.
+            Partner with Zimbabwe's first and leading stretch ceiling provider. Contact us today for a consultation and discover the endless possibilities for your next project.
           </p>
         </motion.div>
       </div>
@@ -108,6 +108,23 @@ function ContactContent() {
                 </div>
               ))}
             </div>
+
+            {/* WhatsApp quick chat */}
+            <a
+              href="https://wa.me/263712326951"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 flex items-center gap-4 p-5 rounded-2xl bg-lafoi-green/5 border border-lafoi-green/15 hover:bg-lafoi-green/10 hover:border-lafoi-green/30 transition-all duration-300 group"
+            >
+              <div className="w-11 h-11 rounded-xl bg-lafoi-green flex items-center justify-center shrink-0 shadow-lg shadow-lafoi-green/20">
+                <MessageCircle size={20} className="text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="text-sm font-sora font-semibold text-lafoi-dark">Chat on WhatsApp</p>
+                <p className="text-xs text-lafoi-gray font-general mt-0.5">Quick replies, project photos and quotes — straight to our team.</p>
+              </div>
+              <ArrowRight size={16} className="text-lafoi-green group-hover:translate-x-1 transition-transform shrink-0" />
+            </a>
           </AnimatedSection>
 
           {/* Form */}

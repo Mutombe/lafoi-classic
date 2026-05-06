@@ -17,6 +17,7 @@ const footerLinks = {
   Company: [
     { name: 'Our Story', path: '/about' },
     { name: 'Portfolio', path: '/portfolio' },
+    { name: 'Videos', path: '/videos' },
     { name: 'Careers', path: '/careers' },
     { name: 'Blog', path: '/blog' },
     { name: 'FAQs', path: '/faq' },
@@ -90,7 +91,7 @@ export default function Footer({ onOpenPolicy, onOpenPrivacy }) {
               <img src="/logo.png" alt="La Foi Designs" className="h-20 sm:h-24 w-auto brightness-0 invert" />
             </Link>
             <p className="text-sm text-white/50 font-general leading-relaxed max-w-xs mb-6">
-              Zimbabwe's premier stretch ceiling and custom lighting solutions provider. Transforming spaces with German & Estonian engineered excellence.
+              Zimbabwe's first and leading provider of premium stretch ceilings and lighting solutions — pioneering Southern Africa, designing around your vision.
             </p>
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 text-sm text-white/40">
