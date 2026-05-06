@@ -6,7 +6,7 @@ import {
   Search, X, Menu, ChevronDown, ArrowRight,
   Sparkles, Building2, Briefcase, Camera, Phone,
   HelpCircle, Newspaper, Users, Lightbulb, Palette,
-  LayoutGrid, Zap, Star, PlayCircle
+  LayoutGrid, Zap, Star, PlayCircle, Sofa, Square, Grid3x3, Droplets
 } from 'lucide-react'
 
 const navGroups = [
@@ -24,6 +24,9 @@ const navGroups = [
     items: [
       { name: 'Stretch Ceilings', path: '/services/stretch-ceilings', icon: LayoutGrid, desc: 'Premium ceiling systems' },
       { name: 'Custom Lighting', path: '/services/custom-lighting', icon: Lightbulb, desc: 'Architectural illumination' },
+      { name: 'Interior Design', path: '/services/interior-design', icon: Sofa, desc: 'End-to-end room design' },
+      { name: 'Flooring & Tiling', path: '/services/flooring', icon: Square, desc: 'Marble, timber, porcelain' },
+      { name: 'Epoxy Floors', path: '/services/epoxy', icon: Droplets, desc: 'Seamless gloss coatings' },
       { name: 'All Services', path: '/services', icon: Palette, desc: 'Full service catalog' },
     ],
   },
@@ -52,6 +55,10 @@ const searchableContent = [
   { title: 'Blog & Design Insights', path: '/blog', section: 'Content', keywords: 'blog articles news design trends' },
   { title: 'Regional Pioneers', path: '/about', section: 'Company', keywords: 'first southern africa pioneer regional' },
   { title: 'Acoustic Stretch Ceilings', path: '/services/acoustic', section: 'Services', keywords: 'acoustic perforated volans auriga orion sound' },
+  { title: 'Interior Design', path: '/services/interior-design', section: 'Services', keywords: 'interior design rooms styling decor furnishing' },
+  { title: 'Flooring', path: '/services/flooring', section: 'Services', keywords: 'flooring floors timber marble porcelain vinyl parquet' },
+  { title: 'Tiling', path: '/services/tiling', section: 'Services', keywords: 'tiling tiles marble porcelain mosaic feature wall bathroom' },
+  { title: 'Epoxy Floors & Coatings', path: '/services/epoxy', section: 'Services', keywords: 'epoxy floor coating polyurethane seamless gloss resin' },
   { title: 'Residential Projects', path: '/portfolio', section: 'Projects', keywords: 'residential home house living room bedroom' },
   { title: 'Commercial Installations', path: '/portfolio', section: 'Projects', keywords: 'commercial office hotel restaurant retail' },
   { title: 'Free Consultation', path: '/contact', section: 'Connect', keywords: 'consultation free quote estimate' },

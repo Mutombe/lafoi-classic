@@ -13,6 +13,10 @@ const footerLinks = {
     { name: 'Printed Ceilings', path: '/services/printed-ceilings' },
     { name: '3D Installations', path: '/services/3d-ceilings' },
     { name: 'Acoustic Solutions', path: '/services/acoustic' },
+    { name: 'Interior Design', path: '/services/interior-design' },
+    { name: 'Flooring', path: '/services/flooring' },
+    { name: 'Tiling', path: '/services/tiling' },
+    { name: 'Epoxy Floors', path: '/services/epoxy' },
   ],
   Company: [
     { name: 'Our Story', path: '/about' },
