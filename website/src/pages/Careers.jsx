@@ -7,6 +7,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 const openings = [
@@ -112,7 +113,7 @@ export default function Careers() {
       </section>
 
       {/* Why work here — mixed bento */}
-      <section className="py-24 lg:py-32 relative overflow-hidden">
+      <section className="py-16 lg:py-24 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient-1" />
         <div className="absolute top-40 left-0 w-72 h-72 bg-lafoi-green/[0.05] rounded-full blur-[100px] animate-float" />
         <div className="absolute bottom-20 right-0 w-72 h-72 bg-lafoi-green-light/[0.05] rounded-full blur-[100px] animate-float-delayed" />
@@ -181,7 +182,7 @@ export default function Careers() {
       </section>
 
       {/* Open positions — editorial table */}
-      <section className="py-24 lg:py-32 bg-lafoi-cream relative overflow-hidden">
+      <section className="py-16 lg:py-24 bg-lafoi-cream relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-30" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <AnimatedSection className="text-center mb-16">
@@ -201,7 +202,7 @@ export default function Careers() {
       </section>
 
       {/* Process timeline */}
-      <section className="py-24 lg:py-32 relative overflow-hidden">
+      <section className="py-16 lg:py-24 relative overflow-hidden">
         <div className="absolute inset-0 mesh-gradient-1" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <AnimatedSection className="text-center mb-16">
@@ -239,7 +240,7 @@ export default function Careers() {
       </section>
 
       {/* General Application CTA */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <OptimizedImage src="/brand/images/38.jpg" alt="Lafoi feature install" className="w-full h-full object-cover" fill />
           <div className="absolute inset-0 bg-lafoi-dark/75" />
@@ -256,13 +257,15 @@ export default function Careers() {
             <p className="text-white/70 font-general text-lg mb-10 max-w-xl mx-auto">
               We're always interested in hearing from talented individuals. Send your CV to admin@lafoidesigns.co.zw
             </p>
-            <a
-              href="mailto:admin@lafoidesigns.co.zw?subject=General Application — La Foi Designs"
-              className="group inline-flex items-center gap-2 px-7 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
-            >
-              Send Your CV
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </a>
+            <MagneticButton>
+              <a
+                href="mailto:admin@lafoidesigns.co.zw?subject=General Application — La Foi Designs"
+                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
+              >
+                Send Your CV
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </MagneticButton>
           </AnimatedSection>
         </div>
       </section>

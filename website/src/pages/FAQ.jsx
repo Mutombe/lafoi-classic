@@ -6,6 +6,7 @@ import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 const faqCategories = [
@@ -13,7 +14,7 @@ const faqCategories = [
     category: 'General',
     questions: [
       { q: 'What are stretch ceilings?', a: 'Stretch ceilings are a modern ceiling finishing system made from PVC or fabric membranes that are stretched and fixed to a perimeter track. They create a perfectly smooth, seamless surface that can be customized with different colors, finishes, prints, and lighting integration.' },
-      { q: 'Is La Foi Designs the first stretch ceiling company in Zimbabwe?', a: 'Yes. Founded in 2024, La Foi Designs is Zimbabwe\'s first and leading provider of stretch ceilings and lighting solutions — and the first company in Southern Africa specialising solely in this discipline.' },
+      { q: 'Is La Foi Designs the first stretch ceiling company in Zimbabwe?', a: 'Yes. Founded in 2024, La Foi Designs is Zimbabwe\'s first and leading provider of stretch ceilings and lighting solutions — the first dedicated stretch ceiling and lighting studio in the country.' },
       { q: 'What areas do you service?', a: 'We primarily service Harare and surrounding areas, but we take on projects across Zimbabwe. For large-scale commercial or hospitality projects, we welcome inquiries from anywhere in the country.' },
     ],
   },
@@ -215,13 +216,15 @@ export default function FAQ() {
                     <WhatsappLogo size={16} weight="fill" />
                     WhatsApp
                   </a>
-                  <a
-                    href="mailto:admin@lafoidesigns.co.zw"
-                    className="inline-flex items-center gap-2 px-5 py-3 bg-lafoi-green text-white rounded-full text-sm font-sora font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
-                  >
-                    <EnvelopeSimple size={16} />
-                    Email Us
-                  </a>
+                  <MagneticButton>
+                    <a
+                      href="mailto:admin@lafoidesigns.co.zw"
+                      className="inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full text-sm font-sora font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
+                    >
+                      <EnvelopeSimple size={16} />
+                      Email Us
+                    </a>
+                  </MagneticButton>
                 </div>
               </div>
             </div>

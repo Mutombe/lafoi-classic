@@ -7,6 +7,7 @@ import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 export default function Contact() {
@@ -294,7 +295,7 @@ function ContactContent() {
 
                   <button
                     type="submit"
-                    className={`group flex items-center justify-center gap-2 w-full px-6 py-4 text-white rounded-full font-sora text-sm font-semibold transition-all shadow-lg ${
+                    className={`group flex items-center justify-center gap-2 w-full h-12 px-6 text-white rounded-full font-sora text-sm font-semibold transition-all shadow-lg ${
                       channel === 'whatsapp' ? 'bg-[#25D366] hover:bg-[#1DA851] shadow-[#25D366]/30' : 'bg-lafoi-green hover:bg-lafoi-green-light shadow-lafoi-green/25'
                     }`}
                   >
@@ -456,34 +457,36 @@ function ContactCTA() {
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
 
   return (
-    <section ref={ref} className="relative py-24 overflow-hidden">
+    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <OptimizedImage src="/brand/images/22.jpg" alt="Penthouse starry sky lounge" className="w-full h-full object-cover scale-110" fill />
         <div className="absolute inset-0 bg-lafoi-dark/70" />
       </motion.div>
+      {/* single blob — compact rule */}
       <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-lafoi-green/20 blur-[80px] animate-float pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-lafoi-green-light/20 blur-[80px] animate-float-delayed pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimatedSection>
-          <Sparkle size={28} className="text-lafoi-green-light mx-auto mb-6" weight="fill" />
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <Sparkle size={26} className="text-lafoi-green-light mx-auto mb-5" weight="fill" />
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white mb-5 tracking-[-0.01em]">
             Ready to <span className="font-cabinet italic font-light">redefine your space?</span>
           </h2>
-          <p className="text-white/70 font-general text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/70 font-general text-lg mb-8 max-w-xl mx-auto">
             Book a free consultation and our team will visit your site, assess the brief, and prepare a tailored proposal.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/services"
-              className="group flex items-center gap-3 px-8 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-            >
-              Browse Services
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <div className="flex flex-wrap justify-center gap-3">
+            <MagneticButton>
+              <Link
+                to="/services"
+                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
+              >
+                Browse Services
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </MagneticButton>
             <Link
               to="/portfolio"
-              className="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
               See Recent Work
             </Link>

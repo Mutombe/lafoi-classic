@@ -6,6 +6,8 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
+import TiltCard from '../components/ui/TiltCard'
 import { useSEO } from '../utils/seo'
 
 const videos = [
@@ -126,6 +128,7 @@ function FeaturedVideo({ video, onClick }) {
     <section className="relative -mt-20 z-30 px-4 sm:px-6 lg:px-10">
       <AnimatedSection>
         <div className="max-w-[1440px] mx-auto">
+          <TiltCard className="rounded-3xl" max={3}>
           <button
             onClick={onClick}
             className="group block w-full text-left relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30"
@@ -170,6 +173,7 @@ function FeaturedVideo({ video, onClick }) {
               </div>
             </div>
           </button>
+          </TiltCard>
         </div>
       </AnimatedSection>
     </section>
@@ -226,30 +230,32 @@ function VideoCTA() {
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
 
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <OptimizedImage src="/brand/images/22.jpg" alt="Penthouse starry sky" className="w-full h-full object-cover scale-110" fill />
         <div className="absolute inset-0 bg-lafoi-dark/70" />
       </motion.div>
+      {/* single blob — compact rule */}
       <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-lafoi-green/20 blur-[80px] animate-float pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-lafoi-green-light/20 blur-[80px] animate-float-delayed pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimatedSection>
-          <Sparkle size={28} className="text-lafoi-green-light mx-auto mb-6" weight="fill" />
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <Sparkle size={26} className="text-lafoi-green-light mx-auto mb-5" weight="fill" />
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white mb-5 tracking-[-0.01em]">
             Want a ceiling like<br /><span className="font-cabinet italic font-light">these in your space?</span>
           </h2>
-          <p className="text-white/75 font-general text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/75 font-general text-lg mb-8 max-w-xl mx-auto">
             Book a consultation and we'll specify the right finish, lighting and installation programme for your project.
           </p>
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-3 px-8 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-          >
-            Start Your Project
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <MagneticButton>
+            <Link
+              to="/contact"
+              className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
+            >
+              Start Your Project
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </MagneticButton>
         </AnimatedSection>
       </div>
     </section>

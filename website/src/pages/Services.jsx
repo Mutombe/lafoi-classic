@@ -7,6 +7,8 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
+import TiltCard from '../components/ui/TiltCard'
 import { useSEO } from '../utils/seo'
 
 const allServices = [
@@ -368,12 +370,16 @@ function ServicesHero() {
 
 function ServiceSpreads() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-16 lg:py-24 relative overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-1 pointer-events-none" />
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-20 relative">
-        <AnimatedSection className="text-center max-w-2xl mx-auto">
-          <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Editorial Catalogue</span>
-          <h2 className="heading-lg text-3xl sm:text-4xl text-lafoi-dark mt-4 mb-5">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-12 relative">
+        <AnimatedSection className="text-center max-w-xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-px w-8 bg-lafoi-green/40" />
+            <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Editorial Catalogue</span>
+            <div className="h-px w-8 bg-lafoi-green/40" />
+          </div>
+          <h2 className="heading-lg text-3xl sm:text-4xl text-lafoi-dark mb-4 tracking-[-0.01em]">
             <CountUp to={10} className="text-gradient" /> services, every one delivered by our <span className="font-cabinet italic font-light text-gradient">in-house team</span>
           </h2>
           <p className="text-lafoi-gray font-general">
@@ -382,51 +388,60 @@ function ServiceSpreads() {
         </AnimatedSection>
       </div>
 
-      <div className="space-y-24 lg:space-y-32 relative">
+      <div className="space-y-12 lg:space-y-20 relative">
         {allServices.map((service, i) => (
-          <ServiceSpread key={service.slug} service={service} index={i} reverse={i % 2 === 1} />
+          <ServiceSpread key={service.slug} service={service} index={i} reverse={i % 2 === 1} featured={i === 0} />
         ))}
       </div>
     </section>
   )
 }
 
-function ServiceSpread({ service, index, reverse }) {
+function ServiceSpread({ service, index, reverse, featured = false }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], [-40, 40])
 
+  const imageBlock = (
+    <div ref={ref} className="rounded-3xl overflow-hidden h-[420px] lg:h-[480px] relative group">
+      <motion.div className="absolute inset-0" style={{ y }}>
+        <OptimizedImage src={service.image} alt={service.title} className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-[1500ms]" fill vision={service.imageVision} />
+      </motion.div>
+      <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent`} />
+      <div className={`absolute top-5 left-5 w-11 h-11 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center`}>
+        <service.icon size={18} className="text-white" />
+      </div>
+      {featured && (
+        <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-lafoi-green/90 backdrop-blur-md text-[10px] font-sora font-semibold tracking-widest uppercase text-white">
+          <Sparkle size={10} weight="fill" /> Featured
+        </div>
+      )}
+    </div>
+  )
+
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-      <div className={`grid lg:grid-cols-12 gap-8 lg:gap-16 items-center`}>
+    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-2 lg:py-4">
+      <div className={`grid lg:grid-cols-12 gap-6 lg:gap-12 items-center`}>
         <div className={`lg:col-span-7 ${reverse ? 'lg:order-2' : ''}`}>
-          <div ref={ref} className="rounded-3xl overflow-hidden h-[400px] lg:h-[560px] relative group">
-            <motion.div className="absolute inset-0" style={{ y }}>
-              <OptimizedImage src={service.image} alt={service.title} className="w-full h-full object-cover scale-110 group-hover:scale-125 transition-transform duration-[1500ms]" fill vision={service.imageVision} />
-            </motion.div>
-            <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent`} />
-            <div className={`absolute top-6 left-6 w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center`}>
-              <service.icon size={20} className="text-white" />
-            </div>
-          </div>
+          {featured ? <TiltCard>{imageBlock}</TiltCard> : imageBlock}
         </div>
 
         <div className={`lg:col-span-5 ${reverse ? 'lg:order-1' : ''}`}>
-          <div className="flex items-baseline gap-4 mb-4">
-            <span className="font-cabinet italic font-light text-7xl lg:text-8xl text-lafoi-green/25 leading-none">
+          <div className="flex items-baseline gap-4 mb-3">
+            <span className="font-cabinet italic font-light text-6xl lg:text-7xl text-lafoi-green/25 leading-none">
               {String(index + 1).padStart(2, '0')}
             </span>
             <div className="h-px flex-1 bg-lafoi-green/20" />
             <span className="text-[10px] tracking-[0.3em] uppercase text-lafoi-gray-medium font-sora">{`/ ${String(allServices.length).padStart(2, '0')}`}</span>
           </div>
           <p className="text-[10px] tracking-[0.3em] uppercase text-lafoi-green font-sora mb-3">{service.subtitle}</p>
-          <h3 className="font-sora text-3xl lg:text-4xl xl:text-5xl font-bold text-lafoi-dark mb-5 leading-[1.1]">
+          <h3 className="font-sora text-3xl lg:text-4xl font-bold text-lafoi-dark mb-4 leading-[1.1] tracking-[-0.01em]">
             {service.title.split(' ').slice(0, -1).join(' ')}{' '}
             <span className="font-cabinet italic font-light text-gradient">{service.title.split(' ').slice(-1)}</span>
           </h3>
-          <p className="text-base text-lafoi-gray font-general leading-relaxed mb-6">{service.desc}</p>
+          <p className="text-base text-lafoi-gray font-general leading-relaxed mb-5 max-w-xl">{service.desc}</p>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2 mb-5">
             {service.applications.slice(0, 4).map((a) => (
               <span key={a} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-lafoi-green-soft text-xs text-lafoi-dark font-sora font-medium">
                 <CaretRight size={10} className="text-lafoi-green" />
@@ -457,7 +472,7 @@ function ProcessOverview() {
   ]
 
   return (
-    <section className="py-24 lg:py-32 bg-lafoi-dark relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-lafoi-dark relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <div className="absolute top-20 left-20 w-72 h-72 bg-lafoi-green/[0.05] rounded-full blur-[100px] animate-float" />
       <div className="absolute bottom-20 right-20 w-72 h-72 bg-lafoi-green-light/[0.05] rounded-full blur-[100px] animate-float-delayed" />
@@ -496,14 +511,14 @@ function ProcessOverview() {
 
 function WhyChooseUs() {
   const reasons = [
-    { title: 'Regional Pioneers', desc: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions.', icon: Trophy, count: { to: 1, suffix: 'st' } },
+    { title: "Zimbabwe's First", desc: "Zimbabwe's first dedicated stretch ceiling and lighting studio.", icon: Trophy, count: { to: 1, suffix: 'st' } },
     { title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', icon: Sparkle, count: { to: 16, suffix: '+' } },
     { title: 'Fast & Cost-Effective', desc: 'Quicker 1–2 day installs reduce project costs and timelines — no skimming or painting.', icon: Lightning, count: { to: 2, suffix: ' days' } },
     { title: 'Durability & Safety', desc: 'Resistant to mould, moisture and cracks, Bs-1 d0 fire-rated, with a 10-year material warranty.', icon: ShieldCheck, count: { to: 10, suffix: ' yrs' } },
   ]
 
   return (
-    <section className="py-24 lg:py-32 bg-lafoi-green-soft relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-lafoi-green-soft relative overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-1" />
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
@@ -540,7 +555,7 @@ function ServicesCTA() {
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
 
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <OptimizedImage
           src="/brand/images/51.jpg"
@@ -550,28 +565,30 @@ function ServicesCTA() {
         />
         <div className="absolute inset-0 bg-lafoi-dark/70" />
       </motion.div>
+      {/* single blob — compact rule */}
       <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-lafoi-green/20 blur-[80px] animate-float pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-lafoi-green-light/20 blur-[80px] animate-float-delayed pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimatedSection>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white mb-5 tracking-[-0.01em]">
             Not sure which solution<br /><span className="font-cabinet italic font-light">is right for you?</span>
           </h2>
-          <p className="text-white/70 font-general text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/70 font-general text-lg mb-8 max-w-xl mx-auto">
             Contact us today for a consultation and our team will help you choose the right ceiling and lighting combination for your space, brief and budget.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/contact"
-              className="group flex items-center gap-3 px-8 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-            >
-              Book Free Consultation
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <div className="flex flex-wrap justify-center gap-3">
+            <MagneticButton>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
+              >
+                Book Free Consultation
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </MagneticButton>
             <a
               href="tel:+263712326951"
-              className="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
               Call +263 712 326 951
             </a>

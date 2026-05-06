@@ -5,7 +5,7 @@ const BASE_URL = 'https://lafoidesigns.co.zw'
 
 const defaultMeta = {
   title: 'La Foi Designs | Luxury Stretch Ceilings & Custom Lighting | Zimbabwe',
-  description: "Zimbabwe's first and leading stretch ceiling and lighting solutions provider — pioneering Southern Africa, designed and installed by an in-house team since 2024.",
+  description: "Zimbabwe's first and leading stretch ceiling and lighting solutions provider — designed and installed by an in-house team since 2024.",
   keywords: 'stretch ceilings, custom lighting, interior design, Zimbabwe, luxury ceilings, LED lighting, La Foi Designs, Harare',
   image: '/og-image.jpg',
 }

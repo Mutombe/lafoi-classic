@@ -95,7 +95,7 @@ export default function Footer({ onOpenPolicy, onOpenPrivacy }) {
               <img src="/logo.png" alt="La Foi Designs" className="h-20 sm:h-24 w-auto brightness-0 invert" />
             </Link>
             <p className="text-sm text-white/50 font-general leading-relaxed max-w-xs mb-6">
-              Zimbabwe's first and leading provider of premium stretch ceilings and lighting solutions — pioneering Southern Africa, designing around your vision.
+              Zimbabwe's first and leading provider of premium stretch ceilings and lighting solutions — designing around your vision.
             </p>
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 text-sm text-white/40">

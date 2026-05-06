@@ -6,6 +6,7 @@ import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 export default function About() {
@@ -82,7 +83,7 @@ function AboutHero() {
             <span className="font-cabinet italic font-light text-gradient">built on excellence</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/75 font-general max-w-xl leading-relaxed">
-            Founded in 2024 to pioneer premium stretch ceilings and lighting solutions in Southern Africa — engineered for durability, designed around your vision, installed by an in-house team you can trust.
+            Founded in 2024 to pioneer premium stretch ceilings and lighting solutions in Zimbabwe — engineered for durability, designed around your vision, installed by an in-house team you can trust.
           </p>
 
           <motion.div
@@ -93,7 +94,7 @@ function AboutHero() {
           >
             {[
               { value: '2024', label: 'Founded' },
-              { value: 'First', label: 'In Southern Africa' },
+              { value: 'First', label: 'In Zimbabwe' },
               { value: '10-Yr', label: 'Material Warranty' },
             ].map((stat) => (
               <div key={stat.label}>
@@ -125,26 +126,46 @@ function AboutHero() {
 
 function MissionStatement() {
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-1" />
       <div className="absolute inset-0 dot-pattern opacity-40" />
+      {/* single blob — compact rule */}
       <div className="absolute top-20 right-0 w-96 h-96 bg-lafoi-green/[0.05] rounded-full blur-[120px] animate-float" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
           <AnimatedSection className="lg:col-span-7">
-            <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Our Mission</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4 mb-6">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-12 bg-lafoi-green/40" />
+              <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Our Mission</span>
+            </div>
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark mb-5 tracking-[-0.01em]">
               To transform interior spaces with{' '}
               <span className="font-cabinet italic font-light text-gradient">durable, visually stunning</span> and versatile ceilings.
             </h2>
-            <p className="body-text text-lg leading-relaxed mb-6">
-              Our team combines expertise in interior design, construction and lighting technology to deliver bespoke solutions tailored to residential, commercial and institutional clients.
+            {/* Hyperlinked prose — RTG-style emphasis paragraph */}
+            <p className="text-lg lg:text-xl leading-relaxed font-general text-lafoi-gray mb-5">
+              Founded in 2024 to redefine what a ceiling can be in Zimbabwe — a studio of{' '}
+              <span className="relative inline-block cursor-pointer group align-baseline">
+                <span className="font-medium text-lafoi-dark">interior designers</span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-lafoi-green group-hover:w-full transition-all duration-500" />
+              </span>{' '}
+              and{' '}
+              <span className="relative inline-block cursor-pointer group align-baseline">
+                <span className="font-medium text-lafoi-dark">trained installers</span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-lafoi-green group-hover:w-full transition-all duration-500" />
+              </span>{' '}
+              pairing premium European materials with locally crafted lighting design — installed in{' '}
+              <span className="relative inline-block cursor-pointer group align-baseline">
+                <span className="font-medium text-lafoi-green">1–2 days</span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-lafoi-green group-hover:w-full transition-all duration-500" />
+              </span>{' '}
+              with a 10-year warranty.
             </p>
-            <p className="body-text text-base leading-relaxed mb-8">
-              We are committed to excellence, innovation and sustainability — meeting the highest standards of quality and design. Every project is treated as a flagship.
+            <p className="body-text text-base leading-relaxed mb-6 max-w-xl">
+              We are committed to excellence, innovation and sustainability — every project is treated as a flagship.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-5">
               <Link to="/services" className="group inline-flex items-center gap-2 font-sora text-sm font-semibold text-lafoi-green hover:text-lafoi-green-dark transition-colors">
                 Explore our services
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -206,7 +227,7 @@ function StoryTimeline() {
       year: '2024',
       eyebrow: 'The Beginning',
       title: 'Founded as Regional Pioneers',
-      desc: 'La Foi Designs is established to introduce premium stretch ceilings to Zimbabwe — the first company in Southern Africa to specialise solely in stretch ceilings and lighting solutions.',
+      desc: 'La Foi Designs is established to introduce premium stretch ceilings to Zimbabwe — the first dedicated stretch ceiling and lighting studio in the country.',
       image: '/brand/images/30.jpg',
     },
     {
@@ -233,14 +254,14 @@ function StoryTimeline() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 bg-lafoi-cream overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-lafoi-cream overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute top-40 left-20 w-72 h-72 bg-lafoi-green/[0.05] rounded-full blur-[100px]" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Our Journey</span>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4">
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark tracking-[-0.01em] mt-4">
             A journey of <span className="font-cabinet italic font-light text-gradient">firsts</span>
           </h2>
         </AnimatedSection>
@@ -295,7 +316,7 @@ function ParallaxImage({ src, alt }) {
 function ValuesSection() {
   const values = [
     { icon: Sparkle, title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', color: 'from-emerald-500 to-green-600' },
-    { icon: Trophy, title: 'Regional Pioneers', desc: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions.', color: 'from-violet-500 to-purple-600' },
+    { icon: Trophy, title: "Zimbabwe's First", desc: "Zimbabwe's first dedicated stretch ceiling and lighting studio.", color: 'from-violet-500 to-purple-600' },
     { icon: Lightning, title: 'Fast & Cost-Effective', desc: 'Quicker installation times of 1–2 days reduce project costs and timelines — no skimming or painting required.', color: 'from-amber-500 to-orange-600' },
     { icon: Heart, title: 'Eco-Friendly', desc: 'Sustainable materials and energy-efficient lighting integrations — better for your space and the planet.', color: 'from-rose-500 to-pink-600' },
     { icon: Target, title: 'Design Flexibility', desc: 'A wide range of colours, textures, finishes and lighting options to match every brief and budget.', color: 'from-teal-500 to-cyan-600' },
@@ -303,16 +324,19 @@ function ValuesSection() {
   ]
 
   return (
-    <section className="py-24 lg:py-32 bg-lafoi-dark relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-lafoi-dark relative overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30" />
+      {/* single blob — compact rule */}
       <div className="absolute top-20 right-20 w-96 h-96 bg-lafoi-green/5 rounded-full blur-[120px] animate-float" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-lafoi-green-light/5 rounded-full blur-[100px] animate-float-delayed" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-16">
-          <AnimatedSection className="max-w-2xl">
-            <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Our Values</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-5">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-5 mb-10">
+          <AnimatedSection className="max-w-xl">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-12 bg-lafoi-green/40" />
+              <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Our Values</span>
+            </div>
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white tracking-[-0.01em] mt-3 mb-4">
               The principles that <span className="font-cabinet italic font-light text-gradient">guide everything</span> we do
             </h2>
             <p className="text-white/40 font-general">
@@ -328,7 +352,7 @@ function ValuesSection() {
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.08}>
           {values.map((v, i) => (
             <StaggerItem key={v.title}>
-              <div className="p-8 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-500 h-full group relative overflow-hidden">
+              <div className="p-6 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-500 h-full group relative overflow-hidden">
                 <div className="absolute -right-4 -top-4 font-sora text-7xl font-bold text-white/[0.03] leading-none">{`0${i + 1}`}</div>
                 <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   <v.icon size={22} className="text-white" />
@@ -358,13 +382,13 @@ function MaterialsBand() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-1" />
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
           <AnimatedSection>
             <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Material Library</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4">
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark tracking-[-0.01em] mt-4">
               Eight finishes,<br /><span className="font-cabinet italic font-light text-gradient">infinite palettes</span>
             </h2>
           </AnimatedSection>
@@ -409,12 +433,12 @@ function MaterialsBand() {
 
 function PartnersSection() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden bg-lafoi-cream">
+    <section className="py-16 lg:py-24 relative overflow-hidden bg-lafoi-cream">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Engineering & Performance</span>
-          <h2 className="heading-lg text-3xl sm:text-4xl text-lafoi-dark mt-4 mb-5">
+          <h2 className="heading-lg text-3xl sm:text-4xl text-lafoi-dark mt-3 mb-4">
             A premium <span className="font-cabinet italic font-light text-gradient">material catalogue</span>, engineered to last
           </h2>
           <p className="text-lafoi-gray font-general">
@@ -442,7 +466,7 @@ function PartnersSection() {
             },
           ].map((partner) => (
             <AnimatedSection key={partner.country}>
-              <div className={`p-8 lg:p-10 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-lafoi-green/[0.06] transition-all duration-500 h-full ${partner.accent}`}>
+              <div className={`p-6 lg:p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-lafoi-green/[0.06] transition-all duration-500 h-full ${partner.accent}`}>
                 <div className="flex items-center gap-4 mb-6">
                   <span className="w-12 h-12 rounded-2xl bg-lafoi-green/10 text-lafoi-green flex items-center justify-center font-sora text-lg font-bold shrink-0">{partner.flag}</span>
                   <div>
@@ -471,8 +495,8 @@ function PartnersSection() {
 function TeamSection() {
   const team = [
     { name: 'Takudzwa Mhembere', role: 'Managing Director', bio: 'With over 5 years of experience in construction and interior design, Mr Mhembere leads La Foi Designs with vision and innovation, ensuring each project exceeds client expectations.' },
+    { name: 'Mrs Mhembere', role: 'Head of Marketing', bio: 'Mrs Mhembere leads marketing strategy, brand positioning and client communications at La Foi Designs — driving visibility for our stretch ceilings and lighting work across residential, commercial and institutional projects.' },
     { name: 'Ashley Tafirenyika', role: 'Operations Manager', bio: 'Specialist in project management, logistics and quality assurance — ensuring timely and efficient delivery of every project.' },
-    { name: 'Charmaine Mumbamarwo', role: 'Marketing Manager', bio: 'Responsible for marketing strategy, client communication and brand visibility for our stretch ceilings and modern lighting solutions.' },
     { name: 'Tendekayi K Mavunga', role: 'Projects Director', bio: 'Expert in interior aesthetics — designing bespoke solutions tailored to client tastes and contemporary trends.' },
   ]
 
@@ -486,7 +510,7 @@ function TeamSection() {
       .toUpperCase()
 
   return (
-    <section className="py-24 lg:py-32 bg-lafoi-dark relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-lafoi-dark relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -502,7 +526,7 @@ function TeamSection() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Meet the Experts</span>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-5">
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white tracking-[-0.01em] mt-3 mb-4">
             The <span className="font-cabinet italic font-light text-gradient">people behind</span> La Foi Designs
           </h2>
           <p className="text-white/50 font-general leading-relaxed">
@@ -544,7 +568,7 @@ function TeamSection() {
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.08}>
           {team.map((member, i) => (
             <StaggerItem key={member.name}>
-              <div className="h-full p-6 lg:p-7 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-500 group flex flex-col relative overflow-hidden">
+              <div className="h-full p-5 lg:p-6 rounded-3xl bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-500 group flex flex-col relative overflow-hidden">
                 <div className="absolute -right-4 -top-4 font-cabinet italic font-light text-7xl text-white/[0.06]">{`0${i + 1}`}</div>
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-lafoi-green to-lafoi-green-light flex items-center justify-center mb-5 shadow-lg shadow-lafoi-green/30 group-hover:scale-105 transition-transform">
                   <span className="font-sora text-lg font-bold text-white tracking-wider">{initials(member.name)}</span>
@@ -558,14 +582,16 @@ function TeamSection() {
           ))}
         </StaggerContainer>
 
-        <AnimatedSection className="text-center mt-12">
-          <Link
-            to="/careers"
-            className="group inline-flex items-center gap-2 px-7 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
-          >
-            Join our team
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+        <AnimatedSection className="text-center mt-10">
+          <MagneticButton>
+            <Link
+              to="/careers"
+              className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
+            >
+              Join our team
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </MagneticButton>
         </AnimatedSection>
       </div>
     </section>
@@ -578,7 +604,7 @@ function AboutCTA() {
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
 
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <OptimizedImage
           src="/brand/images/50.jpg"
@@ -589,36 +615,38 @@ function AboutCTA() {
         <div className="absolute inset-0 bg-lafoi-dark/70" />
       </motion.div>
 
+      {/* single blob — compact rule */}
       <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-lafoi-green/15 blur-[80px] animate-float pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-lafoi-green-light/15 blur-[80px] animate-float-delayed pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10">
         <AnimatedSection>
           <motion.div
-            className="w-16 h-16 rounded-2xl bg-lafoi-green/20 flex items-center justify-center mx-auto mb-8 backdrop-blur-md"
+            className="w-14 h-14 rounded-2xl bg-lafoi-green/20 flex items-center justify-center mx-auto mb-6 backdrop-blur-md"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Sparkle size={28} className="text-lafoi-green" />
+            <Sparkle size={26} className="text-lafoi-green" />
           </motion.div>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white tracking-[-0.01em] mb-5">
             Partner with Zimbabwe's<br />
             <span className="font-cabinet italic font-light">stretch ceiling pioneers</span>
           </h2>
-          <p className="text-white/70 font-general text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/70 font-general text-lg mb-8 max-w-xl mx-auto">
             Contact us today for a consultation and discover the endless possibilities for your next residential, commercial or institutional project.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/contact"
-              className="group flex items-center gap-3 px-8 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
-            >
-              Get Started Today
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <div className="flex flex-wrap justify-center gap-3">
+            <MagneticButton>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
+              >
+                Get Started Today
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </MagneticButton>
             <a
               href="tel:+263712326951"
-              className="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
               Call +263 712 326 951
             </a>

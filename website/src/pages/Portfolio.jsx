@@ -6,6 +6,7 @@ import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
+import MagneticButton from '../components/ui/MagneticButton'
 import { useSEO } from '../utils/seo'
 
 const categories = ['All', 'Residential', 'Commercial', 'Hospitality', 'Retail']
@@ -149,7 +150,7 @@ export default function Portfolio() {
       </section>
 
       {/* Featured CTA band */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <OptimizedImage src="/brand/images/45.jpg" alt="Backlit marble boardroom ceiling" className="w-full h-full object-cover" fill />
           <div className="absolute inset-0 bg-lafoi-dark/75" />
@@ -157,17 +158,19 @@ export default function Portfolio() {
         <div className="absolute top-10 left-10 w-48 h-48 rounded-full bg-lafoi-green/20 blur-[80px] animate-float pointer-events-none" />
         <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <AnimatedSection>
-            <div className="grid lg:grid-cols-12 gap-8 items-center p-8 lg:p-12 rounded-3xl glass-dark border border-white/10" style={{ borderTopRightRadius: '64px' }}>
+            <div className="grid lg:grid-cols-12 gap-6 items-center p-6 lg:p-10 rounded-3xl glass-dark border border-white/10" style={{ borderTopRightRadius: '64px' }}>
               <div className="lg:col-span-8">
-                <p className="text-[10px] tracking-[0.3em] uppercase text-lafoi-green-light font-sora mb-3">Featured Projects</p>
-                <h2 className="heading-lg text-3xl sm:text-4xl text-white">Want yours featured here?</h2>
-                <p className="text-white/70 font-general mt-3 max-w-xl">Book a free site assessment and join the gallery — every install is documented, photographed and added to our public catalogue.</p>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-lafoi-green-light font-sora mb-2">Featured Projects</p>
+                <h2 className="heading-lg text-3xl sm:text-4xl text-white tracking-[-0.01em]">Want yours featured here?</h2>
+                <p className="text-white/70 font-general mt-2 max-w-xl">Book a free site assessment and join the gallery — every install is documented, photographed and added to our public catalogue.</p>
               </div>
               <div className="lg:col-span-4 flex flex-wrap gap-3 lg:justify-end">
-                <Link to="/contact" className="group flex items-center gap-2 px-7 py-3.5 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25">
-                  Book Free Survey
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <MagneticButton>
+                  <Link to="/contact" className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25">
+                    Book Free Survey
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </MagneticButton>
               </div>
             </div>
           </AnimatedSection>

@@ -316,7 +316,7 @@ function NewsletterBand() {
                 />
                 <button
                   type="submit"
-                  className="group flex items-center gap-2 px-6 py-3.5 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
+                  className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/25"
                 >
                   Subscribe
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

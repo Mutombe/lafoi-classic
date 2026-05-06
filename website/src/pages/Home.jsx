@@ -14,12 +14,13 @@ import HeroSlideshow from '../components/ui/HeroSlideshow'
 import MarqueeBand from '../components/ui/MarqueeBand'
 import CountUp from '../components/ui/CountUp'
 import MagneticButton from '../components/ui/MagneticButton'
+import TiltCard from '../components/ui/TiltCard'
 import { useSEO } from '../utils/seo'
 
 export default function Home() {
   useSEO({
     title: null,
-    description: "Zimbabwe's first and leading stretch ceiling and lighting solutions provider. Pioneering Southern Africa with premium materials, bespoke design and an in-house install team since 2024.",
+    description: "Zimbabwe's first and leading stretch ceiling and lighting solutions provider. Premium materials, bespoke design and an in-house install team since 2024.",
     path: '/',
   })
 
@@ -49,8 +50,22 @@ export default function Home() {
    ============================================ */
 function HeroSection() {
   const ref = useRef(null)
+  const cursorRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  // Cursor-following soft glow — hover-capable devices only
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (!window.matchMedia('(hover: hover)').matches) return
+    const handle = (e) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`
+      }
+    }
+    window.addEventListener('mousemove', handle)
+    return () => window.removeEventListener('mousemove', handle)
+  }, [])
 
   const slides = [
     { src: '/brand/images/1.jpg', alt: 'Luxury bedroom with starry-sky stretch ceiling and perimeter LED', vision: 'Real Lafoi installation: starry sky stretch ceiling in luxury bedroom' },
@@ -64,9 +79,15 @@ function HeroSection() {
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
       <HeroSlideshow slides={slides} />
 
-      {/* Floating decorative elements */}
+      {/* Cursor-following soft glow */}
+      <div
+        ref={cursorRef}
+        className="hidden lg:block fixed pointer-events-none w-[600px] h-[600px] rounded-full opacity-40 z-[5] transition-transform duration-700 ease-out"
+        style={{ background: 'radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)', willChange: 'transform' }}
+      />
+
+      {/* Single floating blur (compact rule: max one blob per section) */}
       <div className="absolute top-32 right-20 w-72 h-72 rounded-full bg-lafoi-green/10 blur-[100px] animate-float pointer-events-none z-10" />
-      <div className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-lafoi-green-light/10 blur-[80px] animate-float-delayed pointer-events-none z-10" />
 
       {/* Geometric accents */}
       <motion.div
@@ -81,10 +102,10 @@ function HeroSection() {
       />
 
       {/* Content */}
-      <motion.div className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 w-full pt-32 pb-32 lg:pb-20" style={{ opacity }}>
+      <motion.div className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 w-full pt-28 pb-24 lg:pb-16" style={{ opacity }}>
         <div className="max-w-3xl">
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -94,7 +115,7 @@ function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="heading-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6"
+            className="heading-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-5 tracking-[-0.02em]"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -119,16 +140,16 @@ function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl text-white/80 font-general max-w-lg mb-10 leading-relaxed"
+            className="text-lg sm:text-xl text-white/80 font-general max-w-xl mb-8 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            Premium stretch ceilings and integrated lighting, pioneering Southern Africa's most innovative interior finish — durable, seamless, and designed around your vision.
+            Zimbabwe's leading stretch ceiling and lighting studio — premium membranes, integrated lighting, durable, seamless, and designed around your vision.
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-3"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
@@ -136,7 +157,7 @@ function HeroSection() {
             <MagneticButton>
               <Link
                 to="/contact"
-                className="group flex items-center gap-3 px-7 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
+                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
               >
                 Start Your Project
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -144,7 +165,7 @@ function HeroSection() {
             </MagneticButton>
             <Link
               to="/portfolio"
-              className="group flex items-center gap-3 px-7 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="group inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
               <Play size={16} className="group-hover:scale-110 transition-transform" />
               View Our Work
@@ -153,13 +174,13 @@ function HeroSection() {
 
           {/* Stats bar */}
           <motion.div
-            className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10"
+            className="flex flex-wrap gap-8 mt-12 pt-6 border-t border-white/10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
             {[
-              { value: 'First', label: 'In Southern Africa' },
+              { value: 'First', label: 'In Zimbabwe' },
               { value: '10-Yr', label: 'Material Warranty' },
               { value: '1–2 Days', label: 'Typical Install' },
             ].map((stat) => (
@@ -217,8 +238,22 @@ function HeroSection() {
    PARTNERS MARQUEE — two opposing rows
    ============================================ */
 function PartnersMarquee() {
-  const top = ['Pioneering Southern Africa', '200+ Projects Delivered', 'Eco-Friendly Materials', '10-Year Warranty', 'Fireproof Bs-1 d0', 'Acoustic & Translucent Options', 'Bespoke Design', 'Fast 1–2 Day Install']
-  const bottom = ['Mirror • Gloss • Satin • Matte', 'Translucent Backlit Panels', 'Light Lines up to 50m', 'Fibre-Optic Starry Skies', 'Custom Art Print Membranes', '6 Acoustic Perforations', 'In-House Trained Crew', 'Since 2024']
+  // Single-row marquee — tightened from two opposing rows for a sleeker summary band
+  const top = [
+    "Zimbabwe's First Stretch Ceiling Studio",
+    '200+ Projects Delivered',
+    '10-Year Warranty',
+    'Fireproof Bs-1 d0',
+    'Mirror • Gloss • Satin • Matte',
+    'Translucent Backlit Panels',
+    'Light Lines up to 50m',
+    'Fibre-Optic Starry Skies',
+    'Eco-Friendly Materials',
+    'In-House Trained Crew',
+    'Bespoke Design',
+    'Fast 1–2 Day Install',
+    'Since 2024',
+  ]
 
   const renderItem = (text) => (
     <span className="mx-8 text-sm font-sora text-white/30 flex items-center gap-3">
@@ -232,13 +267,7 @@ function PartnersMarquee() {
       <MarqueeBand
         items={top.map(renderItem)}
         speed={32}
-        className="py-5 text-white/40"
-      />
-      <MarqueeBand
-        items={bottom.map(renderItem)}
-        reverse
-        speed={36}
-        className="py-5 border-t border-white/5 text-white/40"
+        className="py-4 text-white/40"
       />
     </div>
   )
@@ -255,13 +284,13 @@ function AboutPreview() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-1" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-lafoi-green/[0.03] rounded-full blur-[100px]" />
-      <div className="absolute bottom-20 left-0 w-72 h-72 bg-lafoi-green-light/[0.04] rounded-full blur-[100px] animate-float-delayed" />
+      {/* single blob — compact rule */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-lafoi-green/[0.04] rounded-full blur-[100px]" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Bento images */}
           <AnimatedSection direction="left" className="relative">
             <div className="grid grid-cols-12 gap-4">
@@ -310,26 +339,42 @@ function AboutPreview() {
 
           {/* Text content */}
           <AnimatedSection direction="right">
-            <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">About Us</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4 mb-6">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-12 bg-lafoi-green/40" />
+              <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">About Us</span>
+            </div>
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark mb-5 tracking-[-0.01em]">
               Crafting spaces that
               <span className="text-gradient"> inspire wonder</span>
             </h2>
-            <p className="body-text text-base mb-6">
-              Founded in 2024, La Foi Designs is Zimbabwe's first and leading provider of premium stretch ceilings and lighting solutions. We are proud to pioneer this innovative construction technique in Southern Africa.
-            </p>
-            <p className="body-text text-base mb-8">
-              Our mission is to transform interior spaces with durable, visually stunning and versatile ceilings that meet the highest standards of quality and design. Our team combines expertise in interior design, construction, and lighting technology to deliver bespoke solutions for residential, commercial, and institutional clients.
+            {/* Hyperlinked prose — RTG-style emphasis paragraph */}
+            <p className="text-lg lg:text-xl leading-relaxed font-general text-lafoi-gray mb-6">
+              Founded in 2024 to redefine what a ceiling can be in Zimbabwe — a studio of{' '}
+              <span className="relative inline-block cursor-pointer group align-baseline">
+                <span className="font-medium text-lafoi-dark">interior designers</span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-lafoi-green group-hover:w-full transition-all duration-500" />
+              </span>{' '}
+              and{' '}
+              <span className="relative inline-block cursor-pointer group align-baseline">
+                <span className="font-medium text-lafoi-dark">trained installers</span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-lafoi-green group-hover:w-full transition-all duration-500" />
+              </span>{' '}
+              pairing premium European materials with locally crafted lighting design — installed in{' '}
+              <span className="relative inline-block cursor-pointer group align-baseline">
+                <span className="font-medium text-lafoi-green">1–2 days</span>
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-lafoi-green group-hover:w-full transition-all duration-500" />
+              </span>{' '}
+              with a 10-year warranty.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-3 mb-6">
               {[
-                { icon: Trophy, label: 'Regional Pioneers' },
+                { icon: Trophy, label: "Zimbabwe's First" },
                 { icon: Sparkle, label: 'Bespoke Design' },
                 { icon: Users, label: 'In-House Trained Team' },
                 { icon: Globe, label: 'Eco-Friendly Materials' },
               ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 p-3 rounded-xl bg-lafoi-green-soft">
+                <div key={label} className="flex items-center gap-3 p-2.5 rounded-xl bg-lafoi-green-soft">
                   <div className="w-9 h-9 rounded-lg bg-lafoi-green/10 flex items-center justify-center shrink-0">
                     <Icon size={16} className="text-lafoi-green" />
                   </div>
@@ -357,38 +402,41 @@ function AboutPreview() {
    ============================================ */
 function ServicesShowcase() {
   const services = [
-    { icon: Stack, title: 'Stretch Ceilings', desc: 'Matte, gloss, satin, mirror & translucent membranes — seamless, durable, premium.', image: '/brand/images/17.jpg', link: '/services/stretch-ceilings', span: 'lg:col-span-7 lg:row-span-2', height: 'h-[420px] lg:h-[560px]' },
-    { icon: Lightbulb, title: 'Lighting Solutions', desc: 'Light lines up to 50m, fibre-optic starry skies, magnetic track and statement chandeliers.', image: '/brand/images/5.jpg', link: '/services/custom-lighting', span: 'lg:col-span-5', height: 'h-[420px] lg:h-[270px]' },
-    { icon: Printer, title: 'Art Print Ceilings', desc: 'Bespoke photographic prints — sky scenes, marble effects, custom artwork on stretch membrane.', image: '/brand/images/45.jpg', link: '/services/printed-ceilings', span: 'lg:col-span-5', height: 'h-[420px] lg:h-[270px]' },
-    { icon: Cube, title: '3D Forms', desc: 'Sculptural multi-level installations, waves, curves and geometric form.', image: '/brand/images/20.jpg', link: '/services/3d-ceilings', span: 'lg:col-span-4', height: 'h-[300px]' },
-    { icon: SpeakerHigh, title: 'Acoustic Ceilings', desc: 'Volans, Auriga, Orion, Cetus and Libra perforated membranes that absorb sound seamlessly.', image: '/brand/images/47.jpg', link: '/services/acoustic', span: 'lg:col-span-4', height: 'h-[300px]' },
-    { icon: Palette, title: 'Design Consulting', desc: 'End-to-end consultation from brief and samples to handover and ongoing support.', image: '/brand/images/49.jpg', link: '/services/consulting', span: 'lg:col-span-4', height: 'h-[300px]' },
-    { icon: Couch, title: 'Interior Design', desc: 'Coordinated wall, floor and ceiling design — single point of accountability.', image: '/brand/images/56.jpg', link: '/services/interior-design', span: 'lg:col-span-6', height: 'h-[300px]' },
-    { icon: Square, title: 'Flooring & Tiling', desc: 'Engineered timber, large-format porcelain, marble and parquet — installed by our crew.', image: '/brand/images/35.jpg', link: '/services/flooring', span: 'lg:col-span-3', height: 'h-[300px]' },
-    { icon: Drop, title: 'Epoxy Floors', desc: 'Self-levelling resin systems for showrooms, retail and high-traffic interiors.', image: '/brand/images/38.jpg', link: '/services/epoxy', span: 'lg:col-span-3', height: 'h-[300px]' },
+    { icon: Stack, title: 'Stretch Ceilings', desc: 'Matte, gloss, satin, mirror & translucent membranes — seamless, durable, premium.', image: '/brand/images/17.jpg', link: '/services/stretch-ceilings', span: 'lg:col-span-7 lg:row-span-2', height: 'h-[400px] lg:h-[520px]' },
+    { icon: Lightbulb, title: 'Lighting Solutions', desc: 'Light lines up to 50m, fibre-optic starry skies, magnetic track and statement chandeliers.', image: '/brand/images/5.jpg', link: '/services/custom-lighting', span: 'lg:col-span-5', height: 'h-[400px] lg:h-[250px]' },
+    { icon: Printer, title: 'Art Print Ceilings', desc: 'Bespoke photographic prints — sky scenes, marble effects, custom artwork on stretch membrane.', image: '/brand/images/45.jpg', link: '/services/printed-ceilings', span: 'lg:col-span-5', height: 'h-[400px] lg:h-[250px]' },
+    { icon: Cube, title: '3D Forms', desc: 'Sculptural multi-level installations, waves, curves and geometric form.', image: '/brand/images/20.jpg', link: '/services/3d-ceilings', span: 'lg:col-span-4', height: 'h-[280px]' },
+    { icon: SpeakerHigh, title: 'Acoustic Ceilings', desc: 'Volans, Auriga, Orion, Cetus and Libra perforated membranes that absorb sound seamlessly.', image: '/brand/images/47.jpg', link: '/services/acoustic', span: 'lg:col-span-4', height: 'h-[280px]' },
+    { icon: Palette, title: 'Design Consulting', desc: 'End-to-end consultation from brief and samples to handover and ongoing support.', image: '/brand/images/49.jpg', link: '/services/consulting', span: 'lg:col-span-4', height: 'h-[280px]' },
+    { icon: Couch, title: 'Interior Design', desc: 'Coordinated wall, floor and ceiling design — single point of accountability.', image: '/brand/images/56.jpg', link: '/services/interior-design', span: 'lg:col-span-6', height: 'h-[280px]' },
+    { icon: Square, title: 'Flooring & Tiling', desc: 'Engineered timber, large-format porcelain, marble and parquet — installed by our crew.', image: '/brand/images/35.jpg', link: '/services/flooring', span: 'lg:col-span-3', height: 'h-[280px]' },
+    { icon: Drop, title: 'Epoxy Floors', desc: 'Self-levelling resin systems for showrooms, retail and high-traffic interiors.', image: '/brand/images/38.jpg', link: '/services/epoxy', span: 'lg:col-span-3', height: 'h-[280px]' },
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 bg-lafoi-dark overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-lafoi-dark overflow-hidden">
       <div className="absolute inset-0 opacity-30 grid-pattern" />
-      <div className="absolute top-20 left-20 w-80 h-80 bg-lafoi-green/5 rounded-full blur-[100px]" />
+      {/* single blob — compact rule */}
       <div className="absolute bottom-40 right-20 w-96 h-96 bg-lafoi-green-light/5 rounded-full blur-[120px] animate-float-delayed" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 mb-10">
           <AnimatedSection>
-            <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Our Solutions</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mt-4 mb-3">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-12 bg-lafoi-green/40" />
+              <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Our Solutions</span>
+            </div>
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white mb-3 tracking-[-0.01em]">
               <CountUp to={10} className="text-gradient" /> services<br />and growing
             </h2>
-            <p className="text-white/40 font-general max-w-md">
+            <p className="text-white/40 font-general max-w-xl">
               From concept to completion, we offer a full spectrum of premium ceiling, lighting and interior services tailored to your vision.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white rounded-full font-sora text-sm font-medium hover:bg-white/10 transition-colors group"
+              className="inline-flex items-center gap-2 h-12 px-6 border border-white/20 text-white rounded-full font-sora text-sm font-medium hover:bg-white/10 transition-colors group"
             >
               View All Services
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -449,17 +497,28 @@ function StatsBand() {
   ]
 
   return (
-    <section className="relative py-20 lg:py-28 bg-lafoi-dark overflow-hidden">
+    <section className="relative py-16 lg:py-20 bg-lafoi-dark overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
       <div className="absolute inset-0 mesh-gradient-1 opacity-50" />
+      {/* single blob — compact rule */}
       <div className="absolute top-10 right-10 w-72 h-72 bg-lafoi-green/10 rounded-full blur-[100px] animate-float" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-lafoi-green-light/10 rounded-full blur-[100px] animate-float-delayed" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+        {/* Award-reveal clip-path headline */}
+        <motion.h3
+          className="font-sora text-2xl sm:text-3xl lg:text-4xl font-bold text-white text-center mb-10 tracking-[-0.01em] max-w-3xl mx-auto"
+          initial={{ clipPath: 'inset(0 100% 0 0)' }}
+          whileInView={{ clipPath: 'inset(0 0% 0 0)' }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="text-gradient">Zimbabwe's first.</span> Built to last <span className="font-cabinet italic font-light">a decade</span> — backed by a 10-year warranty.
+        </motion.h3>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
           {stats.map((stat, i) => (
-            <AnimatedSection key={stat.label} delay={i * 0.1} className="px-4 lg:px-8 py-6 lg:py-2">
-              <p className="font-sora text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-none">
+            <AnimatedSection key={stat.label} delay={i * 0.1} className="px-4 lg:px-8 py-5 lg:py-2">
+              <p className="font-sora text-5xl lg:text-6xl font-bold text-white leading-none">
                 <CountUp from={stat.from} to={stat.to} suffix={stat.suffix} className="text-gradient" />
               </p>
               <p className="text-xs sm:text-sm text-white/50 font-general mt-3 tracking-widest uppercase">{stat.label}</p>
@@ -485,14 +544,17 @@ function PortfolioPreview() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 bg-lafoi-cream overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-lafoi-cream overflow-hidden">
       <div className="absolute top-40 right-0 w-96 h-96 bg-lafoi-green/[0.05] rounded-full blur-[120px] animate-float" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-5 mb-10">
           <AnimatedSection>
-            <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Our Work</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-12 bg-lafoi-green/40" />
+              <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Our Work</span>
+            </div>
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark tracking-[-0.01em]">
               Spaces we've<br />
               <span className="text-gradient">transformed</span>
             </h2>
@@ -500,7 +562,7 @@ function PortfolioPreview() {
           <AnimatedSection delay={0.1}>
             <Link
               to="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-lafoi-dark text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green transition-colors group"
+              className="inline-flex items-center gap-2 h-12 px-6 bg-lafoi-dark text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green transition-colors group"
             >
               View All Projects
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -509,9 +571,9 @@ function PortfolioPreview() {
         </div>
 
         <StaggerContainer className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5" staggerDelay={0.08}>
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <StaggerItem key={project.title}>
-              <PortfolioCard project={project} />
+              <PortfolioCard project={project} featured={i === 0} />
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -520,12 +582,12 @@ function PortfolioPreview() {
   )
 }
 
-function PortfolioCard({ project }) {
+function PortfolioCard({ project, featured = false }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.96, 1.02, 0.96])
 
-  return (
+  const inner = (
     <Link to="/portfolio" className="group block rounded-3xl overflow-hidden relative break-inside-avoid">
       <motion.div ref={ref} style={{ scale }} className={project.tall ? 'h-96' : 'h-72'}>
         <OptimizedImage
@@ -542,6 +604,12 @@ function PortfolioCard({ project }) {
       </div>
     </Link>
   )
+
+  // 3D tilt on the featured (first/tall) card
+  if (featured) {
+    return <TiltCard className="break-inside-avoid">{inner}</TiltCard>
+  }
+  return inner
 }
 
 /* ============================================
@@ -556,14 +624,18 @@ function ProcessSection() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       <div className="absolute inset-0 mesh-gradient-hero" />
       <div className="absolute top-40 left-20 w-72 h-72 bg-lafoi-green/[0.05] rounded-full blur-[100px]" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-        <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Our Process</span>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4 mb-5">
+        <AnimatedSection className="text-center max-w-xl mx-auto mb-10">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-px w-8 bg-lafoi-green/40" />
+            <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Our Process</span>
+            <div className="h-px w-8 bg-lafoi-green/40" />
+          </div>
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark mb-4 tracking-[-0.01em]">
             From vision to<br /><span className="text-gradient">reality, simplified</span>
           </h2>
           <p className="text-lafoi-gray font-general">
@@ -572,12 +644,12 @@ function ProcessSection() {
         </AnimatedSection>
 
         {/* Mobile / tablet — stacked cards */}
-        <div className="lg:hidden grid sm:grid-cols-2 gap-6">
+        <div className="lg:hidden grid sm:grid-cols-2 gap-5">
           {steps.map((step, i) => (
             <AnimatedSection key={step.num} delay={i * 0.05}>
-              <div className="p-8 rounded-3xl bg-white border border-gray-100 hover:shadow-xl transition-shadow h-full">
-                <p className="font-sora text-6xl font-bold text-lafoi-green/10 mb-4">{step.num}</p>
-                <h3 className="font-sora text-lg font-bold text-lafoi-dark mb-3">{step.title}</h3>
+              <div className="p-6 rounded-3xl bg-white border border-gray-100 hover:shadow-xl transition-shadow h-full">
+                <p className="font-sora text-5xl font-bold text-lafoi-green/10 mb-3">{step.num}</p>
+                <h3 className="font-sora text-lg font-bold text-lafoi-dark mb-2">{step.title}</h3>
                 <p className="text-sm text-lafoi-gray font-general leading-relaxed">{step.desc}</p>
               </div>
             </AnimatedSection>
@@ -585,28 +657,28 @@ function ProcessSection() {
         </div>
 
         {/* Desktop — sticky scroll */}
-        <div className="hidden lg:grid grid-cols-12 gap-12">
+        <div className="hidden lg:grid grid-cols-12 gap-10">
           <div className="col-span-5">
             <div className="sticky top-24">
-              <div className="rounded-3xl overflow-hidden h-[600px] border border-gray-100 shadow-2xl shadow-black/[0.08] relative">
+              <div className="rounded-3xl overflow-hidden h-[520px] border border-gray-100 shadow-2xl shadow-black/[0.08] relative">
                 <ProcessImageStack steps={steps} />
               </div>
-              <div className="mt-6 flex items-center gap-2 text-xs font-sora tracking-widest uppercase text-lafoi-gray">
+              <div className="mt-5 flex items-center gap-2 text-xs font-sora tracking-widest uppercase text-lafoi-gray">
                 <Sparkle size={12} className="text-lafoi-green" />
                 <span>Scroll to follow the process</span>
               </div>
             </div>
           </div>
-          <div className="col-span-7 space-y-24">
+          <div className="col-span-7 space-y-16">
             {steps.map((step, i) => (
               <AnimatedSection key={step.num} delay={i * 0.05}>
-                <div className="flex items-start gap-8">
-                  <span className="font-sora text-7xl xl:text-8xl font-bold text-lafoi-green/15 leading-none shrink-0">{step.num}</span>
-                  <div className="pt-3">
-                    <p className="text-[10px] tracking-[0.3em] uppercase text-lafoi-green font-sora mb-3">Step {step.num}</p>
-                    <h3 className="font-sora text-3xl xl:text-4xl font-bold text-lafoi-dark mb-4">{step.title}</h3>
-                    <p className="text-base text-lafoi-gray font-general leading-relaxed mb-4">{step.desc}</p>
-                    <div className="h-px w-16 bg-lafoi-green" />
+                <div className="flex items-start gap-6">
+                  <span className="font-sora text-6xl xl:text-7xl font-bold text-lafoi-green/15 leading-none shrink-0">{step.num}</span>
+                  <div className="pt-2">
+                    <p className="text-[10px] tracking-[0.3em] uppercase text-lafoi-green font-sora mb-2">Step {step.num}</p>
+                    <h3 className="font-sora text-2xl xl:text-3xl font-bold text-lafoi-dark mb-3 tracking-[-0.01em]">{step.title}</h3>
+                    <p className="text-base text-lafoi-gray font-general leading-relaxed mb-3 max-w-xl">{step.desc}</p>
+                    <div className="h-px w-12 bg-lafoi-green" />
                   </div>
                 </div>
               </AnimatedSection>
@@ -684,8 +756,8 @@ function WhyChooseUsBand() {
     {
       icon: Trophy,
       eyebrow: 'Reason 01',
-      title: 'Regional Pioneers',
-      body: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions — we pioneered this discipline locally.',
+      title: "Zimbabwe's First",
+      body: "Zimbabwe's first dedicated stretch ceiling and lighting studio — we pioneered this discipline locally.",
       image: '/brand/images/30.jpg',
       side: 'left',
     },
@@ -732,24 +804,35 @@ function WhyChooseUsBand() {
   ]
 
   return (
-    <section className="relative py-24 lg:py-32 bg-lafoi-cream overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-lafoi-cream overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
+      {/* single blob — compact rule */}
       <div className="absolute top-40 left-0 w-96 h-96 bg-lafoi-green/[0.04] rounded-full blur-[120px] animate-float" />
-      <div className="absolute bottom-40 right-0 w-72 h-72 bg-lafoi-green-light/[0.05] rounded-full blur-[100px] animate-float-delayed" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Why Choose Us</span>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-lafoi-dark mt-4">
+        <AnimatedSection className="text-center max-w-xl mx-auto mb-10">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="h-px w-8 bg-lafoi-green/40" />
+            <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Why Choose Us</span>
+            <div className="h-px w-8 bg-lafoi-green/40" />
+          </div>
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-lafoi-dark tracking-[-0.01em]">
             <CountUp to={6} className="text-gradient" /> reasons
             <br />we lead the field
           </h2>
         </AnimatedSection>
 
-        <div className="space-y-12 lg:space-y-20">
+        <div className="space-y-10 lg:space-y-14" style={{ perspective: 1200 }}>
           {reasons.map((r, i) => (
-            <AnimatedSection key={r.title} direction={r.side === 'left' ? 'left' : 'right'}>
-              <div className={`grid lg:grid-cols-12 gap-8 lg:gap-12 items-center ${r.side === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+            <motion.div
+              key={r.title}
+              initial={{ opacity: 0, rotateX: 20, y: 60 }}
+              whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              <div className={`grid lg:grid-cols-12 gap-6 lg:gap-10 items-center ${r.side === 'right' ? 'lg:flex-row-reverse' : ''}`}>
                 {r.image ? (
                   <>
                     <div className={`lg:col-span-5 ${r.side === 'right' ? 'lg:order-2' : ''}`}>
@@ -775,8 +858,8 @@ function WhyChooseUsBand() {
                   </div>
                 )}
               </div>
-              <div className="mt-12 h-px bg-gradient-to-r from-transparent via-lafoi-green/20 to-transparent" />
-            </AnimatedSection>
+              <div className="mt-8 h-px bg-gradient-to-r from-transparent via-lafoi-green/20 to-transparent" />
+            </motion.div>
           ))}
         </div>
       </div>
@@ -787,13 +870,13 @@ function WhyChooseUsBand() {
 function ReasonContent({ r }) {
   return (
     <div>
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-3">
         <div className="w-11 h-11 rounded-xl bg-lafoi-green/10 flex items-center justify-center">
           <r.icon size={20} className="text-lafoi-green" />
         </div>
         <span className="text-[10px] tracking-[0.3em] uppercase text-lafoi-green font-sora">{r.eyebrow}</span>
       </div>
-      <h3 className="font-sora text-2xl lg:text-3xl font-bold text-lafoi-dark mb-3">{r.title}</h3>
+      <h3 className="font-sora text-2xl lg:text-3xl font-bold text-lafoi-dark mb-3 tracking-[-0.01em]">{r.title}</h3>
       <p className="text-base text-lafoi-gray font-general leading-relaxed max-w-xl">{r.body}</p>
     </div>
   )
@@ -817,16 +900,19 @@ function TestimonialsSection() {
   }, [testimonials.length])
 
   return (
-    <section className="relative py-24 lg:py-32 bg-lafoi-dark overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-lafoi-dark overflow-hidden">
       <div className="absolute inset-0 opacity-30 grid-pattern" />
+      {/* single blob — compact rule */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-lafoi-green/5 rounded-full blur-[120px]" />
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-lafoi-green-light/10 rounded-full blur-[100px] animate-float-delayed" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className="flex items-end justify-between mb-12">
+        <div className="flex items-end justify-between mb-8">
           <AnimatedSection>
-            <span className="text-lafoi-green font-sora text-sm font-semibold tracking-widest uppercase">Testimonials</span>
-            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mt-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-px w-12 bg-lafoi-green/40" />
+              <span className="text-lafoi-green font-sora text-xs font-semibold tracking-widest uppercase">Testimonials</span>
+            </div>
+            <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white tracking-[-0.01em]">
               What our clients<br />
               <span className="text-gradient">say about us</span>
             </h2>
@@ -903,7 +989,7 @@ function CTASection() {
   const y = useTransform(scrollYProgress, [0, 1], [-50, 50])
 
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden">
+    <section ref={ref} className="relative py-16 lg:py-24 overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y }}>
         <OptimizedImage
           src="/brand/images/22.jpg"
@@ -915,9 +1001,8 @@ function CTASection() {
         <div className="absolute inset-0 bg-gradient-to-t from-lafoi-dark/40 to-transparent" />
       </motion.div>
 
-      {/* Floating decorative orbs */}
+      {/* single blob — compact rule */}
       <div className="absolute top-20 left-10 w-48 h-48 rounded-full bg-lafoi-green/15 blur-[80px] animate-float pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 rounded-full bg-lafoi-green-light/15 blur-[80px] animate-float-delayed pointer-events-none" />
       <motion.div
         className="absolute top-32 right-[20%] w-16 h-16 border border-white/15 rounded-2xl hidden lg:block"
         animate={{ rotate: 360 }}
@@ -927,25 +1012,25 @@ function CTASection() {
       <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
         <AnimatedSection>
           <motion.div
-            className="w-16 h-16 rounded-2xl bg-lafoi-green/20 flex items-center justify-center mx-auto mb-8 backdrop-blur-md"
+            className="w-14 h-14 rounded-2xl bg-lafoi-green/20 flex items-center justify-center mx-auto mb-6 backdrop-blur-md"
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Sparkle size={28} className="text-lafoi-green" />
+            <Sparkle size={26} className="text-lafoi-green" />
           </motion.div>
-          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
+          <h2 className="heading-lg text-3xl sm:text-4xl lg:text-4xl text-white mb-5 tracking-[-0.01em]">
             Partner with Zimbabwe's first<br />stretch ceiling provider
           </h2>
-          <p className="text-white/70 font-general text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/70 font-general text-lg mb-8 max-w-xl mx-auto">
             Contact us today for a consultation and discover the endless possibilities for your next residential, commercial or institutional project.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             <MagneticButton>
               <a
                 href="https://wa.me/263712326951"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 px-8 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
+                className="group inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
               >
                 Chat on WhatsApp
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -953,7 +1038,7 @@ function CTASection() {
             </MagneticButton>
             <a
               href="mailto:admin@lafoidesigns.co.zw"
-              className="flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 h-12 px-6 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
               admin@lafoidesigns.co.zw
             </a>
