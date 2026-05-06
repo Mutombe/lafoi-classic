@@ -1,13 +1,12 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight, Quotes, Trophy, Sparkle, Lightning, Heart, Target, ShieldCheck,
+  ArrowRight, Play, Quotes, Trophy, Sparkle, Lightning, Heart, Target, ShieldCheck,
   Stack, Lightbulb, Printer, Cube, SpeakerHigh, Palette,
 } from '@phosphor-icons/react'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
-import HeroSlideshow from '../components/ui/HeroSlideshow'
 import CountUp from '../components/ui/CountUp'
 import { useSEO } from '../utils/seo'
 
@@ -40,55 +39,148 @@ export default function Home() {
 
 /* HERO ---------------------------------------------------------------- */
 function HeroSection() {
-  const slides = [
-    { src: '/brand/images/1.jpg', alt: 'Luxury bedroom with starry-sky stretch ceiling and perimeter LED', vision: 'Real install: starry sky stretch ceiling in luxury bedroom' },
-    { src: '/brand/images/5.jpg', alt: 'Spiral chandelier in double-volume entrance with linear lights', vision: 'Real install: spiral chandelier in grand entrance' },
-    { src: '/brand/images/22.jpg', alt: 'Penthouse lounge with starry-sky stretch ceiling', vision: 'Real install: penthouse lounge starry sky' },
-  ]
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1])
 
   return (
-    <section className="relative h-[100svh] min-h-[640px] flex items-end overflow-hidden">
-      <HeroSlideshow slides={slides} />
+    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+      <motion.div className="absolute inset-0" style={{ y, scale }}>
+        <OptimizedImage
+          src="/brand/images/1.jpg"
+          alt="Luxury bedroom with starry sky stretch ceiling and perimeter LED — La Foi Designs installation"
+          className="w-full h-full object-cover"
+          fill
+          priority
+          vision="Real Lafoi installation: starry sky stretch ceiling with perimeter LED in a luxury bedroom"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/30" />
+      </motion.div>
 
-      <div className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 w-full pb-24 lg:pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl"
-        >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-lafoi-green animate-pulse" />
-            <span className="text-[11px] font-sora text-white/80 tracking-widest uppercase">
-              Stretch ceilings · Custom lighting · Harare
+      {/* Floating decorative elements */}
+      <div className="absolute top-32 right-20 w-72 h-72 rounded-full bg-lafoi-green/10 blur-[100px] animate-float pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-48 h-48 rounded-full bg-lafoi-green-light/10 blur-[80px] animate-float-delayed pointer-events-none" />
+
+      {/* Geometric accents */}
+      <motion.div
+        className="absolute top-40 right-[15%] w-20 h-20 border border-white/10 rounded-2xl hidden lg:block"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+      />
+      <motion.div
+        className="absolute bottom-32 right-[25%] w-12 h-12 border border-lafoi-green/20 rounded-full hidden lg:block"
+        animate={{ y: [-10, 10, -10] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Content */}
+      <motion.div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 w-full pt-32 pb-20" style={{ opacity }}>
+        <div className="max-w-3xl">
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="w-2 h-2 rounded-full bg-lafoi-green animate-pulse" />
+            <span className="text-xs font-sora text-white/80 font-medium tracking-wider uppercase">Zimbabwe's First Stretch Ceiling Provider</span>
+          </motion.div>
+
+          <motion.h1
+            className="heading-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            Redefining
+            <br />
+            <span className="relative">
+              Ceilings
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none">
+                <motion.path
+                  d="M2 8C50 2 100 2 150 6C200 10 250 4 298 4"
+                  stroke="#22C55E"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 1, duration: 1.2, ease: 'easeInOut' }}
+                />
+              </svg>
             </span>
-          </div>
+            {' '}as Art
+          </motion.h1>
 
-          <h1 className="font-sora font-medium text-white text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.1] tracking-[-0.02em] mb-5">
-            Premium stretch ceilings, designed and installed in Zimbabwe.
-          </h1>
+          <motion.p
+            className="text-lg sm:text-xl text-white/80 font-general max-w-lg mb-10 leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            Premium stretch ceilings and integrated lighting, pioneering Southern Africa's most innovative interior finish — durable, seamless, and designed around your vision.
+          </motion.p>
 
-          <p className="font-general font-light text-base sm:text-lg text-white/75 max-w-xl leading-relaxed mb-8">
-            Founded 2024 · Belgravia, Harare · Imported European materials, locally engineered lighting.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
+          <motion.div
+            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 h-12 px-6 bg-lafoi-green text-white rounded-full font-sora text-sm font-medium hover:bg-lafoi-green-dark transition-colors"
+              className="group flex items-center gap-3 px-7 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-all duration-300 shadow-lg shadow-lafoi-green/25"
             >
-              Start your project
-              <ArrowRight size={16} />
+              Start Your Project
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/portfolio"
-              className="inline-flex items-center gap-2 h-12 px-6 text-white rounded-full font-sora text-sm font-medium border border-white/30 hover:bg-white/10 transition-colors"
+              className="group flex items-center gap-3 px-7 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-sora text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
             >
-              View portfolio
+              <Play size={16} className="group-hover:scale-110 transition-transform" />
+              View Our Work
             </Link>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+
+          {/* Stats bar */}
+          <motion.div
+            className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            {[
+              { value: 'First', label: 'In Southern Africa' },
+              { value: '10-Yr', label: 'Material Warranty' },
+              { value: '1–2 Days', label: 'Typical Install' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="font-sora text-2xl font-bold text-white">{stat.value}</p>
+                <p className="text-xs text-white/50 font-general mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <span className="text-[10px] text-white/30 font-sora tracking-widest uppercase">Scroll</span>
+        <div className="w-5 h-8 rounded-full border border-white/20 flex justify-center pt-1.5">
+          <motion.div
+            className="w-1 h-2 rounded-full bg-white/40"
+            animate={{ y: [0, 8, 0], opacity: [1, 0, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
+      </motion.div>
     </section>
   )
 }
