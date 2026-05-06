@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Phone, Mail, Instagram, Facebook, Linkedin, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, MapPin, Phone, Envelope, InstagramLogo, FacebookLogo, LinkedinLogo, ArrowUpRight } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import { useState } from 'react'
 import AnimatedSection from '../ui/AnimatedSection'
@@ -107,7 +107,7 @@ export default function Footer({ onOpenPolicy, onOpenPrivacy }) {
                 <span>+263 712 326 951 | +263 782 931 472</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-white/40">
-                <Mail size={14} className="text-lafoi-green shrink-0" />
+                <Envelope size={14} className="text-lafoi-green shrink-0" />
                 <span>admin@lafoidesigns.co.zw</span>
               </div>
             </div>
@@ -149,9 +149,9 @@ export default function Footer({ onOpenPolicy, onOpenPrivacy }) {
               Privacy Policy
             </button>
             <div className="flex items-center gap-3">
-              {[Instagram, Facebook, Linkedin].map((Icon, i) => (
+              {[InstagramLogo, FacebookLogo, LinkedinLogo].map((Icon, i) => (
                 <a key={i} href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-lafoi-green/20 hover:text-lafoi-green transition-colors text-white/40">
-                  <Icon size={14} />
+                  <Icon size={14} weight="fill" />
                 </a>
               ))}
             </div>

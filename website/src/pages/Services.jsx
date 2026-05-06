@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ArrowRight, Check, Layers, Lightbulb, Printer, Box, Volume2, Palette, ChevronRight, Sparkles, Star, ArrowUpRight, Sofa, Square, Grid3x3, Droplets } from 'lucide-react'
+import { ArrowRight, Check, Stack, Lightbulb, Printer, Cube, SpeakerHigh, Palette, CaretRight, Sparkle, Star, ArrowUpRight, Couch, Square, SquaresFour, Drop } from '@phosphor-icons/react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import { useSEO } from '../utils/seo'
@@ -10,7 +10,7 @@ import { useSEO } from '../utils/seo'
 const allServices = [
   {
     slug: 'stretch-ceilings',
-    icon: Layers,
+    icon: Stack,
     title: 'Stretch Ceiling Installation',
     subtitle: 'Premium Membrane Systems',
     hero: '/brand/images/17.jpg',
@@ -82,7 +82,7 @@ const allServices = [
   },
   {
     slug: '3d-ceilings',
-    icon: Box,
+    icon: Cube,
     title: '3D Ceiling Forms',
     subtitle: 'Sculptural Multi-Level Designs',
     hero: '/brand/images/20.jpg',
@@ -106,7 +106,7 @@ const allServices = [
   },
   {
     slug: 'acoustic',
-    icon: Volume2,
+    icon: SpeakerHigh,
     title: 'Acoustic Stretch Ceilings',
     subtitle: 'Sound Absorption + Visual Calm',
     hero: '/brand/images/47.jpg',
@@ -154,7 +154,7 @@ const allServices = [
   },
   {
     slug: 'interior-design',
-    icon: Sofa,
+    icon: Couch,
     title: 'Interior Design',
     subtitle: 'Holistic Spaces, Designed End-to-End',
     hero: '/brand/images/56.jpg',
@@ -202,7 +202,7 @@ const allServices = [
   },
   {
     slug: 'tiling',
-    icon: Grid3x3,
+    icon: SquaresFour,
     title: 'Tiling',
     subtitle: 'Marble, Porcelain & Mosaic',
     hero: '/brand/images/41.jpg',
@@ -226,7 +226,7 @@ const allServices = [
   },
   {
     slug: 'epoxy',
-    icon: Droplets,
+    icon: Drop,
     title: 'Epoxy Floors & Coatings',
     subtitle: 'Seamless, Hard-Wearing, High-Gloss',
     hero: '/brand/images/38.jpg',
@@ -450,9 +450,9 @@ function ProcessOverview() {
 function WhyChooseUs() {
   const reasons = [
     { title: 'Regional Pioneers', desc: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions.', icon: Star },
-    { title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', icon: Sparkles },
+    { title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', icon: Sparkle },
     { title: 'Fast & Cost-Effective', desc: 'Quicker 1–2 day installs reduce project costs and timelines — no skimming or painting.', icon: Check },
-    { title: 'Durability & Safety', desc: 'Resistant to mould, moisture and cracks, Bs-1 d0 fire-rated, with a 10-year material warranty.', icon: Sparkles },
+    { title: 'Durability & Safety', desc: 'Resistant to mould, moisture and cracks, Bs-1 d0 fire-rated, with a 10-year material warranty.', icon: Sparkle },
   ]
 
   return (
@@ -610,7 +610,7 @@ function ServiceDetail({ service }) {
                     <div className="space-y-3 mb-6">
                       {service.applications.map((a) => (
                         <div key={a} className="flex items-center gap-2.5">
-                          <ChevronRight size={14} className="text-lafoi-green" />
+                          <CaretRight size={14} className="text-lafoi-green" />
                           <span className="text-sm text-lafoi-gray font-general">{a}</span>
                         </div>
                       ))}
@@ -629,7 +629,7 @@ function ServiceDetail({ service }) {
                     <div className="flex items-center gap-3 mb-3">
                       <div className="flex -space-x-1">
                         {[1, 2, 3, 4, 5].map((i) => (
-                          <Star key={i} size={14} className="text-lafoi-green fill-lafoi-green" />
+                          <Star key={i} size={14} weight="fill" className="text-lafoi-green" />
                         ))}
                       </div>
                       <span className="text-xs text-lafoi-gray font-general">100% Satisfaction</span>

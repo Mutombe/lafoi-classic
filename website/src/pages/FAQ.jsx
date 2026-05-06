@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ChevronDown, ArrowRight, HelpCircle, MessageCircle } from 'lucide-react'
+import { CaretDown, ArrowRight, Question, ChatCircle } from '@phosphor-icons/react'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import { useSEO } from '../utils/seo'
 
@@ -73,7 +73,7 @@ export default function FAQ() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <HelpCircle size={14} className="text-lafoi-green" />
+              <Question size={14} className="text-lafoi-green" />
               <span className="text-xs font-sora text-white/70 font-medium tracking-wider uppercase">Support</span>
             </motion.div>
             <h1 className="heading-xl text-4xl sm:text-5xl lg:text-6xl text-white mt-4 mb-6">
@@ -124,7 +124,7 @@ export default function FAQ() {
 
           {/* CTA */}
           <AnimatedSection className="mt-16 p-8 rounded-3xl bg-lafoi-green-soft border border-lafoi-green/10 text-center">
-            <MessageCircle size={28} className="text-lafoi-green mx-auto mb-4" />
+            <ChatCircle size={28} className="text-lafoi-green mx-auto mb-4" />
             <h3 className="font-sora text-xl font-bold text-lafoi-dark mb-3">Still have questions?</h3>
             <p className="text-sm text-lafoi-gray font-general mb-6">Our team is here to help. Reach out and we'll respond within 24 hours.</p>
             <Link
@@ -150,10 +150,10 @@ function FAQItem({ item }) {
         className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-gray-50/50 transition-colors"
       >
         <div className="flex items-center gap-3">
-          <HelpCircle size={18} className="text-lafoi-green shrink-0" />
+          <Question size={18} className="text-lafoi-green shrink-0" />
           <span className="font-sora text-sm font-semibold text-lafoi-dark">{item.q}</span>
         </div>
-        <ChevronDown
+        <CaretDown
           size={18}
           className={`text-lafoi-gray-medium shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
         />

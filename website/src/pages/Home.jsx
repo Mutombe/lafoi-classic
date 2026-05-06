@@ -3,10 +3,10 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight, Play, ChevronRight, Star, Quote,
-  Sparkles, Award, Users, Globe, Layers, Lightbulb,
-  Palette, Volume2, Printer, Box, ArrowUpRight, Check
-} from 'lucide-react'
+  ArrowRight, Play, CaretRight, Star, Quotes,
+  Sparkle, Trophy, Users, Globe, Stack, Lightbulb,
+  Palette, SpeakerHigh, Printer, Cube, ArrowUpRight, Check,
+} from '@phosphor-icons/react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import { useSEO } from '../utils/seo'
@@ -286,8 +286,8 @@ function AboutPreview() {
 
             <div className="grid grid-cols-2 gap-4 mb-8">
               {[
-                { icon: Award, label: 'Regional Pioneers' },
-                { icon: Sparkles, label: 'Bespoke Design' },
+                { icon: Trophy, label: 'Regional Pioneers' },
+                { icon: Sparkle, label: 'Bespoke Design' },
                 { icon: Users, label: 'In-House Trained Team' },
                 { icon: Globe, label: 'Eco-Friendly Materials' },
               ].map(({ icon: Icon, label }) => (
@@ -321,7 +321,7 @@ function AboutPreview() {
 function ServicesShowcase() {
   const services = [
     {
-      icon: Layers,
+      icon: Stack,
       title: 'Stretch Ceiling Installation',
       desc: 'Custom-designed, seamless and durable stretch ceilings — matte, gloss, satin, translucent and mirror finishes — for luxury homes, hospitality and corporate interiors.',
       image: '/brand/images/17.jpg',
@@ -348,7 +348,7 @@ function ServicesShowcase() {
       color: 'from-violet-500/80 to-purple-600/80',
     },
     {
-      icon: Box,
+      icon: Cube,
       title: '3D Ceiling Forms',
       desc: 'Sculptural multi-level installations with curves, waves and geometric 3D forms. Dramatic visual focal points engineered with our seamless membrane system.',
       image: '/brand/images/20.jpg',
@@ -357,7 +357,7 @@ function ServicesShowcase() {
       color: 'from-cyan-500/80 to-blue-600/80',
     },
     {
-      icon: Volume2,
+      icon: SpeakerHigh,
       title: 'Acoustic Stretch Ceilings',
       desc: 'Micro and macro-perforated membranes — Volans, Auriga, Orion, Cetus and Libra — engineered to absorb sound while staying visually seamless. Ideal for offices, studios and venues.',
       image: '/brand/images/47.jpg',
@@ -627,7 +627,7 @@ function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <StaggerItem key={i}>
               <div className="h-full p-7 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 flex flex-col">
-                <Quote size={24} className="text-lafoi-green/30 mb-4" />
+                <Quotes size={24} className="text-lafoi-green/30 mb-4" />
                 <p className="text-white/70 font-general text-sm leading-relaxed mb-6 flex-1">{t.text}</p>
                 <div className="pt-4 border-t border-white/10">
                   <p className="font-sora text-sm font-semibold text-white">{t.name}</p>
@@ -667,7 +667,7 @@ function CTASection() {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Sparkles size={28} className="text-lafoi-green" />
+            <Sparkle size={28} className="text-lafoi-green" />
           </motion.div>
           <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
             Partner with Zimbabwe's first<br />stretch ceiling provider

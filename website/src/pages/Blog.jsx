@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Calendar, Clock, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, ArrowUpRight } from '@phosphor-icons/react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import { useSEO } from '../utils/seo'

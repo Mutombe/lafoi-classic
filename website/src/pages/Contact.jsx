@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Clock, Send, ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react'
+import { MapPin, Phone, Envelope, Clock, PaperPlaneRight, ArrowRight, CheckCircle, ChatCircle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import { useSEO } from '../utils/seo'
@@ -84,7 +84,7 @@ function ContactContent() {
   const contactInfo = [
     { icon: MapPin, label: 'Visit Our Showroom', value: 'Suite 26, 6 Chelmsford Road, Belgravia, Harare, Zimbabwe' },
     { icon: Phone, label: 'Call Us', value: '+263 712 326 951 | +263 782 931 472' },
-    { icon: Mail, label: 'Email Us', value: 'admin@lafoidesigns.co.zw' },
+    { icon: Envelope, label: 'Email Us', value: 'admin@lafoidesigns.co.zw' },
     { icon: Clock, label: 'Business Hours', value: 'Mon – Fri: 8:00 AM – 5:00 PM | Sat: 9:00 AM – 1:00 PM' },
   ]
 
@@ -117,7 +117,7 @@ function ContactContent() {
               className="mt-8 flex items-center gap-4 p-5 rounded-2xl bg-lafoi-green/5 border border-lafoi-green/15 hover:bg-lafoi-green/10 hover:border-lafoi-green/30 transition-all duration-300 group"
             >
               <div className="w-11 h-11 rounded-xl bg-lafoi-green flex items-center justify-center shrink-0 shadow-lg shadow-lafoi-green/20">
-                <MessageCircle size={20} className="text-white" />
+                <ChatCircle size={20} className="text-white" />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-sora font-semibold text-lafoi-dark">Chat on WhatsApp</p>
@@ -135,7 +135,7 @@ function ContactContent() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
-                <CheckCircle2 size={48} className="text-lafoi-green mx-auto mb-4" />
+                <CheckCircle size={48} className="text-lafoi-green mx-auto mb-4" />
                 <h3 className="font-sora text-2xl font-bold text-lafoi-dark mb-3">Message Sent!</h3>
                 <p className="text-lafoi-gray font-general mb-6">Thank you for reaching out. Our team will contact you within 24 hours.</p>
                 <button
@@ -214,7 +214,7 @@ function ContactContent() {
                     type="submit"
                     className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-lafoi-green text-white rounded-full font-sora text-sm font-semibold hover:bg-lafoi-green-light transition-colors shadow-lg shadow-lafoi-green/20 group"
                   >
-                    <Send size={16} />
+                    <PaperPlaneRight size={16} />
                     Send Message
                     <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </button>

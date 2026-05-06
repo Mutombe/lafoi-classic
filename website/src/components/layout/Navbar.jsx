@@ -3,17 +3,17 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Search, X, Menu, ChevronDown, ArrowRight,
-  Sparkles, Building2, Briefcase, Camera, Phone,
-  HelpCircle, Newspaper, Users, Lightbulb, Palette,
-  LayoutGrid, Zap, Star, PlayCircle, Sofa, Square, Grid3x3, Droplets
-} from 'lucide-react'
+  MagnifyingGlass, X, List, CaretDown, ArrowRight,
+  Sparkle, Buildings, Briefcase, Camera, Phone,
+  Question, Newspaper, Users, Lightbulb, Palette,
+  SquaresFour, Lightning, Star, PlayCircle, Couch, Square, Drop,
+} from '@phosphor-icons/react'
 
 const navGroups = [
   {
     label: 'Discover',
     items: [
-      { name: 'Our Story', path: '/about', icon: Sparkles, desc: 'The journey behind La Foi' },
+      { name: 'Our Story', path: '/about', icon: Sparkle, desc: 'The journey behind La Foi' },
       { name: 'Portfolio', path: '/portfolio', icon: Camera, desc: 'Stunning transformations' },
       { name: 'Videos', path: '/videos', icon: PlayCircle, desc: 'Watch real installations' },
       { name: 'Blog & Insights', path: '/blog', icon: Newspaper, desc: 'Design trends & tips' },
@@ -22,11 +22,11 @@ const navGroups = [
   {
     label: 'Solutions',
     items: [
-      { name: 'Stretch Ceilings', path: '/services/stretch-ceilings', icon: LayoutGrid, desc: 'Premium ceiling systems' },
+      { name: 'Stretch Ceilings', path: '/services/stretch-ceilings', icon: SquaresFour, desc: 'Premium ceiling systems' },
       { name: 'Custom Lighting', path: '/services/custom-lighting', icon: Lightbulb, desc: 'Architectural illumination' },
-      { name: 'Interior Design', path: '/services/interior-design', icon: Sofa, desc: 'End-to-end room design' },
+      { name: 'Interior Design', path: '/services/interior-design', icon: Couch, desc: 'End-to-end room design' },
       { name: 'Flooring & Tiling', path: '/services/flooring', icon: Square, desc: 'Marble, timber, porcelain' },
-      { name: 'Epoxy Floors', path: '/services/epoxy', icon: Droplets, desc: 'Seamless gloss coatings' },
+      { name: 'Epoxy Floors', path: '/services/epoxy', icon: Drop, desc: 'Seamless gloss coatings' },
       { name: 'All Services', path: '/services', icon: Palette, desc: 'Full service catalog' },
     ],
   },
@@ -35,7 +35,7 @@ const navGroups = [
     items: [
       { name: 'Contact Us', path: '/contact', icon: Phone, desc: 'Start your project' },
       { name: 'Careers', path: '/careers', icon: Briefcase, desc: 'Join our team' },
-      { name: 'FAQs', path: '/faq', icon: HelpCircle, desc: 'Common questions' },
+      { name: 'FAQs', path: '/faq', icon: Question, desc: 'Common questions' },
     ],
   },
 ]
@@ -183,7 +183,7 @@ export default function Navbar() {
                 className={`p-2.5 rounded-xl transition-colors group ${isLightText ? 'hover:bg-white/10' : 'hover:bg-lafoi-green/5'}`}
                 aria-label="Search"
               >
-                <Search size={18} className={`transition-colors ${isLightText ? 'text-white/80 group-hover:text-white' : 'text-lafoi-gray group-hover:text-lafoi-green'}`} />
+                <MagnifyingGlass size={18} className={`transition-colors ${isLightText ? 'text-white/80 group-hover:text-white' : 'text-lafoi-gray group-hover:text-lafoi-green'}`} />
               </button>
 
               <Link
@@ -203,7 +203,7 @@ export default function Navbar() {
                 className={`lg:hidden p-2.5 rounded-xl transition-colors ${isLightText ? 'text-white hover:bg-white/10' : 'hover:bg-lafoi-green/5'}`}
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                {mobileOpen ? <X size={22} /> : <List size={22} />}
               </button>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function Navbar() {
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex items-center gap-3 px-5 py-4 border-b border-gray-100">
-                <Search size={20} className="text-lafoi-gray-medium shrink-0" />
+                <MagnifyingGlass size={20} className="text-lafoi-gray-medium shrink-0" />
                 <input
                   ref={searchRef}
                   type="text"
@@ -395,7 +395,7 @@ function DropdownMenu({ group, active, onOpen, onClose, currentPath, lightText }
         }`}
       >
         {group.label}
-        <ChevronDown size={14} className={`transition-transform duration-200 ${active ? 'rotate-180' : ''}`} />
+        <CaretDown size={14} className={`transition-transform duration-200 ${active ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
         {active && (

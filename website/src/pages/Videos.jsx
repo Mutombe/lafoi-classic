@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
-import { Play, X, ArrowRight } from 'lucide-react'
+import { Play, X, ArrowRight } from '@phosphor-icons/react'
 import { Link } from 'react-router-dom'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
@@ -158,7 +158,7 @@ export default function Videos() {
                       whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Play size={26} className="text-lafoi-green ml-1" fill="currentColor" />
+                      <Play size={26} weight="fill" className="text-lafoi-green ml-1" />
                     </motion.div>
                   </div>
                   {/* Caption */}

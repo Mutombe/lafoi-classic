@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, MapPin, Clock, Briefcase, ChevronDown, Heart, Zap, Globe, Users } from 'lucide-react'
+import { ArrowRight, MapPin, Clock, Briefcase, CaretDown, Heart, Lightning, Globe, Users } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
@@ -41,7 +41,7 @@ const openings = [
 
 const perks = [
   { icon: Globe, title: 'On-the-Job Training', desc: 'Learn the full stretch ceiling and lighting discipline from our in-house team.' },
-  { icon: Zap, title: 'Growth Opportunities', desc: 'A fast-growing company with real room to advance into senior roles.' },
+  { icon: Lightning, title: 'Growth Opportunities', desc: 'A fast-growing company with real room to advance into senior roles.' },
   { icon: Heart, title: 'Team Culture', desc: 'Collaborative, supportive and creative — every voice on the team is heard.' },
   { icon: Users, title: 'Diverse Projects', desc: 'Work across residential, commercial, hospitality and institutional installs.' },
 ]
@@ -170,7 +170,7 @@ function JobCard({ job }) {
               <span className="flex items-center gap-1"><MapPin size={14} /> {job.location}</span>
             </div>
           </div>
-          <ChevronDown size={20} className={`text-lafoi-gray transition-transform ${open ? 'rotate-180' : ''}`} />
+          <CaretDown size={20} className={`text-lafoi-gray transition-transform ${open ? 'rotate-180' : ''}`} />
         </button>
         {open && (
           <motion.div

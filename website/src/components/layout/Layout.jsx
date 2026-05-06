@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Cookie, Shield, ScrollText } from 'lucide-react'
+import { X, Cookie, Shield, Scroll } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -104,7 +104,7 @@ export default function Layout({ children }) {
 function PolicyModal({ open, onClose, type }) {
   const isTerms = type === 'terms'
   const title = isTerms ? 'Terms & Conditions' : 'Privacy Policy'
-  const Icon = isTerms ? ScrollText : Shield
+  const Icon = isTerms ? Scroll : Shield
 
   return (
     <AnimatePresence>

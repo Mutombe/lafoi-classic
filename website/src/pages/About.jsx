@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Award, Globe, Heart, Shield, Target, Users, Zap, CheckCircle2, Sparkles, Star } from 'lucide-react'
+import { ArrowRight, Trophy, Globe, Heart, Shield, Target, Users, Lightning, CheckCircle, Sparkle, Star } from '@phosphor-icons/react'
 import AnimatedSection, { StaggerContainer, StaggerItem } from '../components/ui/AnimatedSection'
 import OptimizedImage from '../components/ui/OptimizedImage'
 import { useSEO } from '../utils/seo'
@@ -114,7 +114,7 @@ function MissionStatement() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <AnimatedSection className="max-w-4xl mx-auto text-center">
           <div className="w-16 h-16 rounded-2xl bg-lafoi-green/10 flex items-center justify-center mx-auto mb-8">
-            <Sparkles size={28} className="text-lafoi-green" />
+            <Sparkle size={28} className="text-lafoi-green" />
           </div>
           <h2 className="heading-lg text-2xl sm:text-3xl lg:text-4xl text-lafoi-dark mb-6">
             To transform interior spaces with <span className="text-gradient">durable, visually stunning</span> and versatile ceilings.
@@ -222,9 +222,9 @@ function StoryTimeline() {
 
 function ValuesSection() {
   const values = [
-    { icon: Sparkles, title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', color: 'from-emerald-500 to-green-600' },
-    { icon: Award, title: 'Regional Pioneers', desc: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions.', color: 'from-violet-500 to-purple-600' },
-    { icon: Zap, title: 'Fast & Cost-Effective', desc: 'Quicker installation times of 1–2 days reduce project costs and timelines — no skimming or painting required.', color: 'from-amber-500 to-orange-600' },
+    { icon: Sparkle, title: 'Innovative & Modern', desc: 'Cutting-edge techniques and premium materials for sleek, seamless finishes that last.', color: 'from-emerald-500 to-green-600' },
+    { icon: Trophy, title: 'Regional Pioneers', desc: 'The first company in Southern Africa specialising solely in stretch ceilings and lighting solutions.', color: 'from-violet-500 to-purple-600' },
+    { icon: Lightning, title: 'Fast & Cost-Effective', desc: 'Quicker installation times of 1–2 days reduce project costs and timelines — no skimming or painting required.', color: 'from-amber-500 to-orange-600' },
     { icon: Heart, title: 'Eco-Friendly', desc: 'Sustainable materials and energy-efficient lighting integrations — better for your space and the planet.', color: 'from-rose-500 to-pink-600' },
     { icon: Target, title: 'Design Flexibility', desc: 'A wide range of colours, textures, finishes and lighting options to match every brief and budget.', color: 'from-teal-500 to-cyan-600' },
     { icon: Shield, title: 'Durability & Safety', desc: 'Resistant to mould, moisture, cracks and wear — Bs-1 d0 fire-rated and ideal for Zimbabwe’s climate.', color: 'from-blue-500 to-indigo-600' },
@@ -312,7 +312,7 @@ function PartnersSection() {
                 <div className="grid grid-cols-2 gap-3">
                   {partner.features.map((f) => (
                     <div key={f} className="flex items-center gap-2.5 p-2.5 rounded-xl bg-lafoi-green-soft">
-                      <CheckCircle2 size={14} className="text-lafoi-green shrink-0" />
+                      <CheckCircle size={14} className="text-lafoi-green shrink-0" />
                       <span className="text-xs text-lafoi-dark font-medium">{f}</span>
                     </div>
                   ))}
@@ -397,7 +397,7 @@ function TeamSection() {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           >
             <div className="flex items-center gap-2">
-              <Star size={16} className="text-white fill-white" />
+              <Star size={16} weight="fill" className="text-white" />
               <span className="text-white font-sora text-sm font-bold">In-House Team</span>
             </div>
           </motion.div>
@@ -453,7 +453,7 @@ function AboutCTA() {
             animate={{ rotate: [0, 5, -5, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Sparkles size={28} className="text-lafoi-green" />
+            <Sparkle size={28} className="text-lafoi-green" />
           </motion.div>
           <h2 className="heading-lg text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
             Partner with Zimbabwe's<br />stretch ceiling pioneers.
